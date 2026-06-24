@@ -1,0 +1,3163 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="color-scheme:dark;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0A0A">
+<title>Security Leaders — Brand Guide</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;700;900&family=Kode+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;500;700&family=Anton&display=swap" rel="stylesheet">
+<style>
+:root {
+  --preto:        #0A0A0A;
+  --gold:         #C9A84C;
+  --gold-claro:   #E8C97A;
+  --branco:       #FFFFFF;
+  --cinza-escuro: #1A1A1A;
+  --cinza-medio:  #2A2A2A;
+  --champagne:    #F0E6B8;
+  --verde:        #00D878;
+  --verde-dim:    rgba(0,216,120,0.12);
+  --verde-glow:   rgba(0,216,120,0.28);
+  --verde-txt:    #00D878;
+  --amber:        #F5A500;
+  --amber-dim:    rgba(245,165,0,0.12);
+  --surface:      #131313;
+  --borda:        rgba(201,168,76,0.14);
+  --borda-fraca:  rgba(255,255,255,0.07);
+  --cinza-txt:    #7A7568;
+  --gold-dim:     rgba(201,168,76,0.10);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* skip link */
+.skip-link {
+  position: absolute; top: -9999px; left: 1rem;
+  background: var(--gold); color: var(--preto);
+  font-family: 'Kode Mono', monospace; font-size: .75rem;
+  padding: .5rem 1rem; z-index: 10000; border-radius: 2px;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ─── CURSOR ─── */
+#dot, #ring {
+  position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .2s, height .2s, border-color .2s;
+}
+#dot  { width: 5px;  height: 5px;  background: var(--gold); }
+#ring { width: 28px; height: 28px; border: 1px solid rgba(201,168,76,.4); }
+@media (max-width: 820px){ body{cursor:auto;} #dot,#ring{display:none;} }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 3.5rem;
+  background: rgba(10,10,10,.9); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--borda-fraca);
+}
+.nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav-shield {
+  width: 22px; height: 26px;
+  background: linear-gradient(160deg, var(--gold-claro), var(--gold) 55%, #8c7430);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+.nav-wordmark {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700; font-size: 17px; letter-spacing: .04em;
+  color: var(--branco); text-transform: uppercase;
+}
+.nav-wordmark b { color: var(--amber); }
+nav ul { list-style: none; display: flex; gap: 2rem; }
+nav ul a {
+  font-family: 'Kode Mono', monospace;
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cinza-txt); text-decoration: none; transition: color .2s;
+}
+nav ul a:hover, nav ul a:focus-visible { color: var(--amber); outline: none; }
+.nav-tag {
+  font-family: 'Kode Mono', monospace;
+  font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--verde-txt); border: 1px solid rgba(61,186,122,.25);
+  padding: 5px 11px; border-radius: 2px; white-space: nowrap;
+}
+/* Hamburger */
+.nav-burger {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px; margin-left: auto;
+}
+.nav-burger span { display: block; width: 22px; height: 2px; background: var(--branco); transition: .25s; }
+@media (max-width: 1080px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-burger { display: flex; }
+  .nav-tag { display: none; }
+  nav ul {
+    display: none; flex-direction: column; gap: 0;
+    position: fixed; top: 56px; left: 0; right: 0; z-index: 98;
+    background: var(--preto); border-top: 1px solid var(--borda-fraca);
+    padding: .5rem 0;
+  }
+  nav ul.open { display: flex; }
+  nav ul li a { display: block; padding: .75rem 1.5rem; font-size: 11px; }
+}
+
+/* ─── LAYOUT ─── */
+.max-w { max-width: 1200px; margin: 0 auto; padding: 0 3.5rem; }
+section { padding: 8rem 0; scroll-margin-top: 72px; }
+.divider { border: none; border-top: 1px solid var(--borda-fraca); }
+@media (max-width: 820px){ .max-w{padding:0 1.5rem;} section{padding:5rem 0;} }
+
+/* ─── FADE ─── */
+.fade { opacity: 0; transform: translateY(22px); transition: opacity .8s, transform .8s; }
+.fade.on { opacity: 1; transform: none; }
+
+/* ─── SEC LABEL / TITLE ─── */
+.sec-label {
+  font-family: 'Kode Mono', monospace;
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 1.2rem;
+}
+.sec-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em;
+  font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+  line-height: 0.95; margin-bottom: 1.4rem;
+  text-wrap: balance;
+}
+.sec-title em { font-style: normal; color: var(--amber); }
+.sec-body {
+  font-size: .92rem; line-height: 1.85; color: var(--cinza-txt);
+  max-width: 620px; font-weight: 300;
+}
+.sec-body strong { color: var(--branco); font-weight: 500; }
+
+/* ─── HERO / CAPA ─── */
+.hero {
+  min-height: 100vh; position: relative; overflow: hidden;
+}
+.hero-inner {
+  display: flex; align-items: center; justify-content: flex-end;
+  min-height: 100vh; padding: 8rem 3.5rem;
+  max-width: 1200px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.hero-right { width: min(540px, 58%); }
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url('https://securityleaders.com.br/wp-content/uploads/2026/03/54892568730_7d89d1321d_o.jpg');
+  background-size: cover; background-position: center 20%;
+}
+.hero-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(to left, rgba(4,4,4,.90) 0%, rgba(4,4,4,.68) 40%, rgba(4,4,4,.22) 100%),
+    linear-gradient(to bottom, rgba(4,4,4,.4) 0%, transparent 18%, transparent 65%, rgba(4,4,4,.96) 100%);
+}
+.hero-bg::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--verde) 40%, var(--gold) 60%, transparent);
+  opacity: .45;
+}
+.hero-binary {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  font-family: 'Kode Mono', monospace; font-size: 11px; line-height: 1.9;
+  color: rgba(201,168,76,.04); letter-spacing: .3em; overflow: hidden;
+  word-break: break-all; user-select: none;
+}
+.hero > *:not(.hero-bg):not(.hero-binary) { position: relative; z-index: 1; }
+.hero-eyebrow {
+  font-family: 'Kode Mono', monospace;
+  font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 2.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); }
+.hero-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 900; text-transform: uppercase; letter-spacing: -0.025em;
+  font-size: clamp(2.4rem, 6.5vw, 5.2rem); line-height: 0.88;
+}
+.hero-title .l2 { color: var(--amber); display: block; }
+.hero-tagline {
+  font-family: 'Kode Mono', monospace;
+  font-size: clamp(.8rem, 1.4vw, 1rem); color: var(--branco);
+  letter-spacing: .04em; line-height: 1.7; max-width: 520px;
+  margin-bottom: 4rem; font-weight: 400;
+}
+.hero-tagline span { color: var(--amber); }
+.hero-tagline .verde { color: var(--verde-txt); }
+.hero-meta {
+  display: flex; gap: 3.5rem; flex-wrap: wrap;
+  border-top: 1px solid var(--borda-fraca); padding-top: 2rem;
+}
+.hero-meta-item { display: flex; flex-direction: column; gap: .4rem; }
+.meta-label { font-family:'Kode Mono',monospace; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--cinza-txt); }
+.meta-val { font-size: .9rem; color: var(--branco); font-weight: 400; }
+.meta-val.gold  { color: var(--amber); }
+.meta-val.verde { color: var(--verde-txt); }
+
+/* ─── ÍNDICE ─── */
+.index-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 3rem;
+}
+@media (max-width: 900px){ .index-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width: 520px){ .index-grid{grid-template-columns:1fr;} }
+.index-cell {
+  background: var(--preto); padding: 2rem 1.6rem; text-decoration: none;
+  display: flex; flex-direction: column; gap: .8rem; min-height: 160px;
+  position: relative; overflow: hidden; transition: background .25s;
+  justify-content: center;
+}
+.index-cell::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: var(--gold); transform: scaleX(0); transform-origin: left;
+  transition: transform .4s;
+}
+.index-cell:hover, .index-cell:focus-visible { background: var(--cinza-escuro); outline: none; }
+.index-cell:hover::before, .index-cell:focus-visible::before { transform: scaleX(1); }
+.index-num {
+  font-family: 'Kode Mono', monospace; font-size: .75rem; color: var(--amber);
+  letter-spacing: .1em;
+}
+.index-name {
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 700;
+  text-transform: uppercase; font-size: 1.35rem; line-height: 1.05; color: var(--branco);
+}
+.index-desc { font-size: .72rem; line-height: 1.5; color: var(--cinza-txt); }
+
+/* ─── LOGO PRINCIPAL / ANATOMIA ─── */
+.logo-stage {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  margin-top: 3.5rem;
+}
+@media (max-width: 900px){ .logo-stage{grid-template-columns:1fr; gap:3rem;} }
+.shield-wrap {
+  background: radial-gradient(circle at 50% 40%, var(--cinza-escuro), var(--preto) 75%);
+  border: 1px solid var(--borda); border-radius: 4px;
+  padding: 3.5rem; display: flex; align-items: center; justify-content: center;
+  min-height: 420px;
+}
+.shield-wrap img { width: min(260px, 70%); height: auto; display: block; filter: drop-shadow(0 18px 40px rgba(0,0,0,.6)); }
+.img-fallback {
+  width: 220px; height: 280px;
+  background: linear-gradient(160deg, var(--gold-claro), var(--gold) 50%, #7c6628);
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; text-transform: uppercase;
+  color: rgba(10,10,10,.55); font-size: 1.1rem; line-height: 1; padding: 2rem;
+}
+.anatomy-list { display: flex; flex-direction: column; gap: 1.3rem; }
+.an-row { display: flex; gap: 1rem; align-items: flex-start; }
+.an-dot {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  border: 1px solid var(--gold); color: var(--amber);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Kode Mono', monospace; font-size: .65rem; margin-top: .1rem;
+}
+.an-row h4 { font-size: .9rem; font-weight: 500; color: var(--branco); margin-bottom: .25rem; }
+.an-row p  { font-size: .8rem; line-height: 1.65; color: var(--cinza-txt); }
+
+/* sub-bloco genérico */
+.sub-label {
+  font-family: 'Kode Mono', monospace; font-size: .72rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--cinza-txt); margin-bottom: 1rem;
+}
+.versions-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 1rem;
+}
+@media (max-width: 760px){ .versions-grid{grid-template-columns:1fr;} }
+.ver-cell { padding: 2.6rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
+.ver-cell.on-dark  { background: var(--preto); }
+.ver-cell.on-gray  { background: var(--cinza-escuro); }
+.ver-cell.on-light { background: var(--branco); }
+.ver-cell img { width: 110px; height: auto; }
+.ver-cap .t { font-family:'Kode Mono',monospace; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--cinza-txt); }
+.ver-cell.on-light .ver-cap .t { color:#999; }
+.ver-cap .s { font-size:.66rem; color:var(--cinza-txt); opacity:.7; margin-top:.35rem; }
+.ver-cell.on-light .ver-cap .s { color:#aaa; }
+
+/* nota */
+.note {
+  background: var(--surface); border: 1px solid var(--borda); border-left: 2px solid var(--gold);
+  padding: 1.4rem 1.8rem; margin-top: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;
+}
+.note.ok   { border-left-color: var(--verde); }
+.note.warn { border-left-color: var(--amber); }
+.note .ico { font-size: 1rem; flex-shrink: 0; }
+.note.ok   .ico { color: var(--verde-txt); }
+.note.warn .ico { color: var(--amber); }
+.note p { font-size: .82rem; line-height: 1.75; color: var(--cinza-txt); }
+.note p strong { color: var(--branco); font-weight: 500; }
+
+/* placeholder seções futuras */
+.coming {
+  border: 1px dashed rgba(15,92,56,.4); border-radius: 4px; padding: 3rem;
+  text-align: center; color: var(--cinza-txt); font-family:'Kode Mono',monospace;
+  font-size: .8rem; letter-spacing: .1em; margin-top: 2rem;
+}
+
+/* ─── APLICAÇÃO / MARGEM (03) ─── */
+.margin-demo {
+  display: flex; align-items: center; justify-content: center;
+  padding: 4rem; margin-top: 1rem;
+  background: var(--cinza-escuro); border: 1px solid var(--borda-fraca);
+}
+.margin-box { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+.margin-zone {
+  position: absolute; inset: -28px;
+  border: 1px dashed rgba(201,168,76,.45); pointer-events: none;
+}
+.margin-zone::before {
+  content: 'x'; position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  font-family:'Kode Mono',monospace; font-size:.6rem; color:var(--amber); letter-spacing:.1em;
+}
+.margin-arrow {
+  position: absolute; font-family:'Kode Mono',monospace;
+  font-size:.58rem; color:rgba(201,168,76,.7); letter-spacing:.06em;
+}
+.margin-arrow.top    { top:-44px;  left:50%;  transform:translateX(-50%); }
+.margin-arrow.right  { right:-60px; top:50%;  transform:translateY(-50%); }
+.margin-arrow.bottom { bottom:-44px;left:50%; transform:translateX(-50%); }
+.margin-arrow.left   { left:-60px;  top:50%;  transform:translateY(-50%); }
+.margin-legend { display: flex; gap: 3rem; flex-wrap: wrap; margin-top: 2rem; }
+.ml-item { display: flex; flex-direction: column; gap: .35rem; }
+.ml-label { font-family:'Kode Mono',monospace; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--cinza-txt); }
+.ml-val { font-size:.82rem; color:var(--branco); font-weight:500; }
+
+/* reduções */
+.reduc-strip { display: flex; flex-direction: column; gap: 1px; background: var(--borda-fraca); margin-top: 1rem; }
+.reduc-row { background: var(--preto); padding: 2.2rem 2.5rem; display: flex; align-items: center; gap: 3rem; }
+.reduc-row .dl-btn { margin-left:auto; width:auto; padding:10px 18px; font-size:.6rem; letter-spacing:.16em; border-radius:4px; white-space:nowrap; flex-shrink:0; }
+.dl-g { color:var(--verde-txt); text-transform:lowercase; }
+.reduc-row.alt { background: var(--cinza-escuro); }
+.reduc-row img { flex-shrink: 0; height: auto; display: block; }
+.reduc-info { display: flex; flex-direction: column; gap: .4rem; }
+.reduc-px  { font-family:'Kode Mono',monospace; font-size:.8rem; color:var(--amber); }
+.reduc-uso { font-size:.8rem; color:var(--cinza-txt); }
+.reduc-tag {
+  font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--verde-txt); border:1px solid rgba(61,186,122,.3); padding:3px 8px; border-radius:2px;
+  width:fit-content; margin-top:.2rem;
+}
+.reduc-tag.min { color:#e06464; border-color:rgba(220,100,100,.4); }
+.reduc-tag.gold { color:var(--amber); border-color:rgba(201,168,76,.35); }
+
+/* fundos */
+.bg-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 1rem;
+}
+@media (max-width: 680px){ .bg-grid{grid-template-columns:repeat(2,1fr);} }
+.bg-cell { padding: 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem; position:relative; }
+.bg-cell img { width: 80px; height: auto; }
+.bg-ok { position:absolute; top:10px; right:10px; width:18px; height:18px; border-radius:50%; background:var(--verde); display:flex; align-items:center; justify-content:center; font-size:.6rem; color:#fff; }
+.bg-no { position:absolute; top:10px; right:10px; width:18px; height:18px; border-radius:50%; background:#7a2a2a; display:flex; align-items:center; justify-content:center; font-size:.6rem; color:#fff; }
+.bg-name { font-family:'Kode Mono',monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; text-align:center; color:var(--cinza-txt); }
+.bg-hex  { font-family:'Kode Mono',monospace; font-size:.6rem; text-align:center; opacity:.6; color:var(--cinza-txt); }
+
+/* ─── TIPOGRAFIA (06) ─── */
+.type-status-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 1rem;
+}
+@media (max-width: 760px){ .type-status-grid{grid-template-columns:1fr;} }
+.tcard { background: var(--preto); padding: 2.2rem 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.tcard-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.tcard-name { font-family:'Big Shoulders Display',sans-serif; font-weight:700; text-transform:uppercase; font-size:1.5rem; line-height:1; }
+.tcard-where { font-family:'Kode Mono',monospace; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--cinza-txt); margin-top:.4rem; }
+.status {
+  font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.12em; text-transform:uppercase;
+  padding:4px 9px; border-radius:2px; white-space:nowrap; flex-shrink:0;
+}
+.status.keep { color:var(--verde-txt); border:1px solid rgba(61,186,122,.4); }
+.status.fix  { color:var(--amber); border:1px solid rgba(201,168,76,.45); }
+.tcard-sample { border-top:1px solid var(--borda-fraca); padding-top:1.1rem; min-height:64px; display:flex; align-items:center; }
+.tcard-note { font-size:.76rem; line-height:1.6; color:var(--cinza-txt); }
+.tcard-note b { color:var(--branco); font-weight:500; }
+.s-big    { font-family:'Big Shoulders Display',sans-serif; font-weight:900; text-transform:uppercase; font-size:2rem; letter-spacing:-.02em; line-height:.9; }
+.s-kode   { font-family:'Kode Mono',monospace; font-size:1rem; letter-spacing:.05em; color:var(--amber); }
+.s-roboto { font-family:'Roboto',sans-serif; font-weight:300; font-size:1rem; line-height:1.6; color:var(--branco); }
+.s-aldrish{ font-family:'Aldrich','Big Shoulders Display',sans-serif; font-size:1.7rem; letter-spacing:.04em; text-transform:uppercase; color:var(--branco); }
+
+/* hierarquia */
+.hier { display:flex; flex-direction:column; gap:1px; background:var(--borda-fraca); margin-top:1rem; }
+.hier-row { background:var(--preto); padding:1.6rem 2rem; display:grid; grid-template-columns:130px 1fr 200px; gap:2rem; align-items:center; }
+@media (max-width: 820px){ .hier-row{grid-template-columns:1fr; gap:.7rem;} }
+.hier-tag  { font-family:'Kode Mono',monospace; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--amber); }
+.hier-spec { font-family:'Kode Mono',monospace; font-size:.7rem; color:var(--cinza-txt); line-height:1.5; }
+.hier-demo { overflow:hidden; }
+.demo-h1      { font-family:'Big Shoulders Display',sans-serif; font-weight:900; text-transform:uppercase; font-size:1.9rem; letter-spacing:-.02em; line-height:.9; }
+.demo-h2      { font-family:'Big Shoulders Display',sans-serif; font-weight:700; text-transform:uppercase; font-size:1.5rem; line-height:1; }
+.demo-h3      { font-family:'Big Shoulders Display',sans-serif; font-weight:400; font-size:1.3rem; line-height:1; }
+.demo-label   { font-family:'Kode Mono',monospace; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); }
+.demo-destaque{ font-family:'Kode Mono',monospace; font-size:.95rem; color:var(--verde-txt); letter-spacing:.04em; }
+.demo-body    { font-family:'Roboto',sans-serif; font-weight:300; font-size:.9rem; line-height:1.6; color:var(--cinza-txt); }
+.demo-tech    { font-family:'Kode Mono',monospace; font-size:.8rem; color:rgba(201,168,76,.55); letter-spacing:.2em; }
+
+/* substituições — redesenhado */
+.subst-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--borda-fraca); margin-top:1rem; }
+@media (max-width: 760px){ .subst-grid{grid-template-columns:1fr 1fr;} }
+@media (max-width: 460px){ .subst-grid{grid-template-columns:1fr;} }
+.subst-cell { background:var(--preto); padding:2rem 1.6rem; display:flex; flex-direction:column; gap:.8rem; }
+.subst-cell.no { background:#160d0d; border:1px solid rgba(220,80,80,.2); }
+.subst-plat { font-family:'Kode Mono',monospace; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--cinza-txt); }
+.subst-arrow { color:var(--verde-txt); font-family:'Kode Mono',monospace; font-size:.75rem; }
+.subst-cell.no .subst-arrow { color:#e06464; }
+/* amostra de fonte em caixa controlada */
+.subst-sample {
+  border: 1px solid var(--borda-fraca); background: var(--cinza-escuro);
+  padding: .9rem 1rem; border-radius: 2px; overflow: hidden;
+  display: flex; flex-direction: column; gap: .15rem;
+}
+.subst-sample-name {
+  font-size: 1.5rem; line-height: 1; text-transform: uppercase; color: var(--branco);
+}
+.subst-sample-sub {
+  font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--cinza-txt); margin-top:.3rem;
+}
+.subst-cell.no .subst-sample { background: #1a0f0f; }
+.subst-cell.no .subst-sample-name { color: #e06464; font-family: Arial, Helvetica, sans-serif; font-size: 1.2rem; font-weight: normal; text-transform: none; }
+
+/* ─── PALETA (05) ─── */
+.palette-section { background: var(--surface); max-width: 100%; }
+
+/* swatches principais */
+.swatch-main {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 1px;
+  background: var(--borda-fraca); margin-top: 2rem;
+}
+@media (max-width: 820px){ .swatch-main{grid-template-columns:repeat(2,1fr);} }
+@media (max-width: 480px){ .swatch-main{grid-template-columns:1fr;} }
+.swatch-card {
+  display: flex; flex-direction: column; cursor: pointer;
+  outline: none; position: relative;
+}
+.swatch-block {
+  min-height: 160px; position: relative; overflow: hidden;
+  transition: filter .2s;
+}
+.swatch-card:hover .swatch-block { filter: brightness(1.08); }
+.swatch-copy-hint {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family:'Kode Mono',monospace; font-size:.65rem; letter-spacing:.12em;
+  background: rgba(0,0,0,.45); color:#fff; opacity:0;
+  transition: opacity .2s; pointer-events:none;
+}
+.swatch-card:hover .swatch-copy-hint,
+.swatch-card:focus-visible .swatch-copy-hint { opacity:1; }
+.swatch-info { background:var(--preto); padding:1.2rem 1.4rem; flex:1; }
+.swatch-name { font-size:.82rem; font-weight:500; color:var(--branco); margin-bottom:.3rem; }
+.swatch-hex  {
+  font-family:'Kode Mono',monospace; font-size:.75rem; color:var(--amber);
+  letter-spacing:.08em; display:inline-block; transition: color .25s;
+}
+.swatch-card.copied .swatch-hex { color: var(--verde-txt); }
+.swatch-feedback {
+  font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.1em;
+  color:var(--verde-txt); margin-left:.6rem; opacity:0; transition:opacity .25s; vertical-align:middle;
+}
+.swatch-card.copied .swatch-feedback { opacity:1; }
+.swatch-use { font-size:.68rem; color:var(--cinza-txt); margin-top:.4rem; line-height:1.45; }
+
+/* swatches secundários */
+.swatch-row {
+  display: grid; grid-template-columns: repeat(6,1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 1px;
+}
+@media (max-width: 820px){ .swatch-row{grid-template-columns:repeat(3,1fr);} }
+.swatch-card.sm .swatch-block { min-height: 80px; }
+.swatch-card.sm .swatch-info  { padding: .9rem 1.1rem; }
+.swatch-card.sm .swatch-name  { font-size:.72rem; }
+.swatch-card.sm .swatch-hex   { font-size:.68rem; }
+
+/* verde nacional: 3 opções */
+.verde-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 1rem;
+}
+@media (max-width: 640px){ .verde-grid{grid-template-columns:1fr;} }
+.verde-card {
+  position: relative; display: flex; flex-direction: column;
+  cursor: pointer; outline: none;
+}
+.verde-block { min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 1.5rem; }
+.verde-block img { width: 64px; height: auto; filter: drop-shadow(0 4px 12px rgba(0,0,0,.5)); }
+.verde-info { background: var(--preto); padding: 1.1rem 1.3rem; }
+.verde-badge {
+  display: inline-block; margin-bottom: .5rem;
+  font-family:'Kode Mono',monospace; font-size:.58rem; letter-spacing:.14em; text-transform:uppercase;
+  padding: 3px 8px; border-radius: 2px;
+}
+.verde-badge.rec { color:var(--verde-txt); border:1px solid rgba(61,186,122,.4); background: rgba(15,92,56,.15); }
+.verde-badge.alt { color:var(--cinza-txt); border:1px solid var(--borda-fraca); }
+.verde-name { font-family:'Big Shoulders Display',sans-serif; font-weight:700; text-transform:uppercase; font-size:1.1rem; color:var(--branco); }
+.verde-hex  { font-family:'Kode Mono',monospace; font-size:.72rem; color:var(--amber); letter-spacing:.08em; margin-top:.2rem; }
+.verde-feedback {
+  font-family:'Kode Mono',monospace; font-size:.58rem; letter-spacing:.1em;
+  color:var(--verde-txt); margin-left:.5rem; opacity:0; transition:opacity .25s;
+}
+.verde-card.copied .verde-feedback { opacity:1; }
+.verde-card.copied .verde-hex { color:var(--verde-txt); }
+.verde-desc { font-size:.72rem; color:var(--cinza-txt); margin-top:.5rem; line-height:1.5; }
+
+/* demos de aplicação */
+.demo-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 2rem;
+}
+@media (max-width: 760px){ .demo-grid{grid-template-columns:1fr;} }
+.demo-card { background: var(--preto); padding: 0; overflow: hidden; }
+.demo-label-bar {
+  font-family:'Kode Mono',monospace; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--cinza-txt); padding: .7rem 1.2rem; border-bottom: 1px solid var(--borda-fraca);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.demo-label-bar span { color:var(--amber); }
+.demo-canvas { padding: 1.8rem 1.6rem; }
+
+/* ─── BACK TO TOP ─── */
+#scroll-top{position:fixed;bottom:1.8rem;right:1.8rem;width:42px;height:42px;background:var(--cinza-medio);border:1px solid var(--borda);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s;z-index:9000;pointer-events:none;}
+#scroll-top.vis{opacity:1;transform:translateY(0);pointer-events:auto;}
+#scroll-top:hover{background:var(--cinza-escuro);border-color:var(--gold);}
+#scroll-top svg{width:18px;height:18px;stroke:var(--gold);transition:stroke .2s;}
+
+/* ─── ASSETS REPO ─── */
+.asset-repo-sub { font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--amber); margin:3rem 0 1.2rem; }
+.asset-grid { display:grid; gap:1px; background:var(--borda-fraca); }
+.asset-grid.cols-2 { grid-template-columns:1fr 1fr; }
+.asset-grid.cols-5 { grid-template-columns:repeat(5,1fr); }
+@media(max-width:800px){ .asset-grid.cols-5{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:480px){ .asset-grid.cols-5{grid-template-columns:repeat(2,1fr);} .asset-grid.cols-2{grid-template-columns:1fr;} }
+.asset-card { background:var(--surface); padding:1.6rem 1.2rem; display:flex; flex-direction:column; align-items:center; gap:.9rem; transition:background .25s; }
+.asset-preview { display:flex; align-items:center; justify-content:center; min-height:72px; width:100%; }
+.asset-preview svg { display:block; }
+.asset-label { font-family:'Kode Mono',monospace; font-size:.52rem; letter-spacing:.12em; text-transform:uppercase; color:var(--cinza-txt); text-align:center; line-height:1.6; }
+.asset-card .dl-btn { background:var(--preto); }
+/* Tabs de cor */
+.icon-tabs { display:flex; gap:1px; background:var(--borda-fraca); margin-bottom:1px; }
+.icon-tab { flex:1; padding:.8rem; background:var(--cinza-escuro); font-family:'Kode Mono',monospace; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; border:none; color:var(--cinza-txt); cursor:pointer; transition:all .2s; }
+.icon-tab:hover { background:var(--cinza-medio); color:#fff; }
+.icon-tab.active { background:var(--cinza-medio); color:var(--amber); }
+/* Modos de cor dos ícones */
+#asset-icon-grid .asset-card svg { color:#ffffff; transition:color .25s; }
+#asset-icon-grid.mode-gold .asset-card { background:#0e0c05; }
+#asset-icon-grid.mode-gold .asset-card svg { color:#C9A84C; }
+#asset-icon-grid.mode-gold .asset-label { color:#6a5c28; }
+#asset-icon-grid.mode-black .asset-card { background:#ebebeb; }
+#asset-icon-grid.mode-black .asset-card svg { color:#0A0A0A; }
+#asset-icon-grid.mode-black .asset-label { color:#555; }
+
+/* ─── REGIONAIS (07) ─── */
+.regional-hero { position:relative; height:70vh; min-height:420px; overflow:hidden; }
+.regional-hero video { width:100%; height:100%; object-fit:cover; display:block; }
+.regional-overlay {
+  position:absolute; inset:0;
+  background: linear-gradient(to bottom, rgba(10,10,10,.15) 0%, rgba(10,10,10,.65) 55%, rgba(10,10,10,1) 100%);
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.regional-overlay .max-w { padding-bottom:3.5rem; }
+.regional-hero-title {
+  font-family:'Big Shoulders Display',sans-serif; font-weight:900; text-transform:uppercase;
+  font-size: clamp(2.8rem,8vw,5.5rem); line-height:.88; letter-spacing:-.02em;
+  color:var(--branco); margin:.8rem 0 1.2rem;
+}
+.regional-hero-title em { font-style:normal; color:var(--amber); }
+.regional-hero-sub { font-size:.88rem; color:rgba(255,255,255,.5); font-weight:300; max-width:520px; line-height:1.65; }
+@media (prefers-reduced-motion:reduce){ .regional-hero video{ animation:none; } }
+
+.cidade-header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:3rem 0 1.5rem; border-bottom:1px solid var(--borda-fraca); margin-bottom:2rem;
+}
+.cidade-uf   { font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--cinza-txt); margin-bottom:.3rem; }
+.cidade-nome { font-family:'Big Shoulders Display',sans-serif; font-weight:900; text-transform:uppercase; font-size:2.5rem; color:var(--branco); line-height:1; }
+.cidade-num  { font-family:'Kode Mono',monospace; font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--cinza-txt); }
+
+.logo-preview-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--borda-fraca); }
+@media (max-width:640px){ .logo-preview-grid{grid-template-columns:1fr;} }
+.logo-preview-dark  { background:#0A0A0A; padding:2.5rem 2rem; display:flex; flex-direction:column; align-items:center; gap:1.2rem; }
+.logo-preview-light { background:#FFFFFF;  padding:2.5rem 2rem; display:flex; flex-direction:column; align-items:center; gap:1.2rem; }
+.logo-preview-dark  img,
+.logo-preview-light img { max-width:300px; width:100%; height:auto; display:block; }
+.logo-preview-label { font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; text-align:center; }
+.logo-preview-dark  .logo-preview-label { color:var(--cinza-txt); }
+.logo-preview-light .logo-preview-label { color:#888; }
+
+.regional-dl-row { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--borda-fraca); margin-top:1px; }
+@media (max-width:480px){ .regional-dl-row{grid-template-columns:1fr;} }
+
+.cidade-img-block { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--borda-fraca); margin-bottom:1px; }
+@media (max-width:580px){ .cidade-img-block{grid-template-columns:1fr;} }
+.cidade-img-item { background:var(--cinza-escuro); overflow:hidden; display:flex; flex-direction:column; }
+.cidade-thumb { width:100%; height:260px; object-fit:cover; display:block; flex-shrink:0; }
+.cidade-img-footer {
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.9rem 1.4rem; border-top:1px solid var(--borda-fraca); flex-wrap:wrap; flex:1;
+}
+
+/* ─── TIPOGRAFIA · TYPE SPECIMENS (06) ─── */
+.type-spec-block { padding:4.5rem 0; border-bottom:1px solid var(--borda-fraca); }
+.type-spec-block:last-of-type { border-bottom:none; padding-bottom:0; }
+.type-spec-header {
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:1rem; margin-bottom:3.5rem;
+}
+.type-spec-meta-role { font-family:'Kode Mono',monospace; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--cinza-txt); margin-bottom:.5rem; }
+.type-spec-meta-name { font-family:'Big Shoulders Display',sans-serif; font-weight:900; text-transform:uppercase; font-size:2rem; color:var(--branco); line-height:1; }
+.type-gf-link {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:'Kode Mono',monospace; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--amber); border:1px solid rgba(245,165,0,.3); padding:10px 18px; border-radius:4px;
+  text-decoration:none; transition:border-color .2s, background .2s; white-space:nowrap;
+}
+.type-gf-link:hover { background:var(--amber-dim); border-color:var(--amber); }
+.type-gf-link:focus-visible { outline:1px solid var(--amber); outline-offset:3px; }
+.type-big-sample {
+  font-size:clamp(4rem,14vw,8.5rem); line-height:.88; letter-spacing:-.02em;
+  color:var(--branco); margin-bottom:2.5rem; word-break:break-word;
+}
+.type-charset {
+  font-size:.92rem; line-height:2.4; letter-spacing:.1em;
+  color:rgba(255,255,255,.22); margin-bottom:0;
+  padding-bottom:2.5rem; border-bottom:1px solid var(--borda-fraca);
+}
+.type-weights { display:grid; gap:1px; background:var(--borda-fraca); margin-top:2.5rem; }
+.type-w3 { grid-template-columns:repeat(3,1fr); }
+.type-w2 { grid-template-columns:repeat(2,1fr); }
+@media (max-width:640px){ .type-w3,.type-w2{ grid-template-columns:1fr; } }
+.type-w-cell { background:var(--preto); padding:1.6rem 1.4rem; }
+.type-w-label { font-family:'Kode Mono',monospace; font-size:.58rem; letter-spacing:.18em; text-transform:uppercase; color:var(--cinza-txt); margin-bottom:1rem; }
+.type-w-sample { line-height:1.7; color:rgba(255,255,255,.55); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.type-note-rule { margin-top:2.5rem; }
+
+/* ─── DOWNLOADS (09) ─── */
+.dl-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--borda-fraca); margin-top: 2rem;
+}
+@media (max-width: 820px){ .dl-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width: 480px){ .dl-grid{grid-template-columns:1fr;} }
+.dl-card {
+  background: var(--preto); padding: 2rem 1.6rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1.2rem; min-height: 220px; transition: background .2s;
+}
+.dl-card:hover { background: var(--cinza-escuro); }
+.dl-card.original { background: var(--surface); border: 1px solid var(--borda); }
+.dl-preview {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  min-height: 80px;
+}
+.dl-meta { text-align: center; width: 100%; }
+.dl-size  { font-family:'Kode Mono',monospace; font-size:.78rem; color:var(--amber); margin-bottom:.25rem; }
+.dl-label { font-size:.72rem; color:var(--cinza-txt); line-height:1.4; }
+.dl-btn {
+  font-family:'Kode Mono',monospace; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+  background: none; border: 1px solid rgba(201,168,76,.35);
+  color: var(--amber); padding: 9px 0; cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+  width: 100%; border-radius: 2px; display: flex; align-items: center; justify-content: center; gap: .5rem;
+}
+.dl-btn:hover { background: var(--amber-dim); border-color: var(--amber); }
+.dl-btn:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+.dl-btn.ok    { color: var(--verde-txt); border-color: rgba(61,186,122,.4); }
+.dl-btn.error { color: #e06464; border-color: rgba(220,100,100,.4); }
+.dl-btn:disabled { opacity: .5; cursor: default; }
+.dl-note {
+  background: var(--cinza-escuro); border: 1px solid var(--borda-fraca);
+  padding: 1.2rem 1.6rem; margin-top: 1rem;
+  font-family:'Kode Mono',monospace; font-size:.68rem; letter-spacing:.06em;
+  color: var(--cinza-txt); line-height: 1.7;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.dl-note b { color: var(--branco); }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--borda-fraca);
+  padding: 2.5rem 3.5rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.ft-logo { font-family:'Big Shoulders Display',sans-serif; font-weight:700; text-transform:uppercase; font-size:1.1rem; letter-spacing:.03em; }
+.ft-logo b { color: var(--amber); }
+.ft-info { font-family:'Kode Mono',monospace; font-size:.7rem; letter-spacing:.1em; color:var(--cinza-txt); }
+
+/* ─── GRIDS RESPONSIVOS (Trilhas + Referências) ─── */
+.trilhas-g1 { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--verde-dim); }
+.trilhas-g2 { display:flex; justify-content:center; gap:1px; background:var(--surface); margin-top:1px; }
+.trilhas-g2-card { flex:0 0 33.33%; }
+.ref-links-grid  { display:grid; grid-template-columns:1fr 1fr; }
+.ref-vinhetas-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--borda-fraca); margin-top:1.2rem; }
+@media(max-width:700px){
+  .trilhas-g1 { grid-template-columns:repeat(2,1fr); }
+  .trilhas-g2 { flex-wrap:wrap; }
+  .trilhas-g2-card { flex:0 0 50%; }
+  .ref-links-grid, .ref-vinhetas-grid { grid-template-columns:1fr; }
+}
+@media(max-width:420px){
+  .trilhas-g1 { grid-template-columns:1fr; }
+  .trilhas-g2-card { flex:0 0 100%; }
+}
+
+/* ─── ICON TABS (wrap no mobile) ─── */
+@media(max-width:600px){
+  .icon-tabs { flex-wrap:wrap; }
+  .icon-tab  { flex:1 1 auto; text-align:center; }
+}
+
+/* ─── SEÇÕES: padding mobile ─── */
+@media(max-width:520px){
+  section { padding:4rem 0; }
+  .sec-title { font-size:clamp(2rem,8vw,3.2rem); }
+  .hero-title { font-size:clamp(2rem,9vw,3.5rem); }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Ir para o conteúdo</a>
+<div id="dot" aria-hidden="true"></div>
+<div id="ring" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav aria-label="Navegação principal">
+  <a class="nav-logo" href="#topo">
+    <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+         width="22" height="26" alt="Security Leaders"
+         style="object-fit:contain;"
+         onerror="this.outerHTML='&lt;span class=&quot;nav-shield&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;'">
+    <span class="nav-wordmark">SECURITY <b>LEADERS</b></span>
+  </a>
+  <ul>
+    <li><a href="#logo">Logo</a></li>
+    <li><a href="#aplicacao">Aplicação</a></li>
+    <li><a href="#donts">Don'ts</a></li>
+    <li><a href="#cores">Cores</a></li>
+    <li><a href="#tipografia">Tipografia</a></li>
+    <li><a href="#regionais">Regionais</a></li>
+    <li><a href="#melhorias">Melhorias</a></li>
+    <li><a href="#referencias">Referências</a></li>
+  </ul>
+  <div class="nav-tag" aria-label="Versão: Brand Guide 2026">Brand Guide · 2026</div>
+  <button class="nav-burger" aria-label="Menu" onclick="var u=this.closest('nav').querySelector('ul');u.classList.toggle('open');this.setAttribute('aria-expanded',u.classList.contains('open'))">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="main">
+
+<!-- ═══════ 01 — CAPA + ÍNDICE ═══════ -->
+<section class="hero" id="topo">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-binary" aria-hidden="true">
+    01001000 01010011 0100 01010011 01001100 0110 01000101 01000011 01010101 01010010 01001001 01010100 01011001 0100 01001100 01000101 01000001 01000100 01000101 01010010 01010011 0110 01010011 01000101 01000111 01010101 01010010 01000001 01001110 01000011 01000001 0100 01010011 01000101 01000011 01010101 01010010 01001001 01010100 01011001 0100 01001100 01000101 01000001 01000100 01000101 01010010 01010011 0110 0100 01010011 01001100 0110 01001110 01000001 01000011 01001001 01001111 01001110 01000001 01001100 0100</div>
+
+  <div class="hero-inner">
+    <div class="hero-right">
+      <div class="hero-eyebrow fade">Brand Guide · Identidade Visual</div>
+
+      <div class="hero-lockup fade" style="transition-delay:.08s;display:flex;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:1.4rem;">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             alt="Security Leaders — escudo dourado"
+             width="180" height="225"
+             style="width:min(120px,22vw);height:auto;flex-shrink:0;filter:drop-shadow(0 12px 32px rgba(0,0,0,.8));"
+             onerror="this.outerHTML='&lt;div style=&quot;width:100px;height:125px;background:linear-gradient(160deg,var(--gold-claro),var(--gold) 50%,#7c6628);clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%);&quot;&gt;&lt;/div&gt;'">
+        <h1 class="hero-title" style="margin-bottom:0;">
+          Security<span class="l2">Leaders</span>
+        </h1>
+      </div>
+
+      <p class="hero-tagline fade" style="transition-delay:.18s">
+        Brand guide oficial do maior evento de <span>cibersegurança</span> do Brasil.<br>
+        <span>9 edições</span> <span style="color:var(--branco);opacity:.55;">Regionais</span> · 1 edição <span class="verde">Nacional</span>
+      </p>
+
+      <div class="hero-meta fade" style="transition-delay:.3s">
+        <div class="hero-meta-item"><span class="meta-label">Marca</span><span class="meta-val">Security Leaders</span></div>
+        <div class="hero-meta-item"><span class="meta-label">Edições</span><span class="meta-val">9 regionais + 1 Nacional</span></div>
+        <div class="hero-meta-item"><span class="meta-label">Paleta base</span><span class="meta-val">Preto + Dourado</span></div>
+        <div class="hero-meta-item"><span class="meta-label">Nacional</span><span class="meta-val verde">Verde · #00D878</span></div>
+        <div class="hero-meta-item"><span class="meta-label">Status</span><span class="meta-val gold">Para aprovação</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w" style="padding-top:3rem;">
+  <div class="sec-label fade">Índice · 09 seções</div>
+  <div class="index-grid">
+    <a href="#logo"        class="index-cell fade"                              ><span class="index-num">02</span><span class="index-desc">Escudo dourado — anatomia e versões</span><span class="index-name">Logo Principal</span></a>
+    <a href="#aplicacao"   class="index-cell fade" style="transition-delay:.05s"><span class="index-num">03</span><span class="index-desc">Margem de segurança e fundos permitidos</span><span class="index-name">Aplicação</span></a>
+    <a href="#donts"       class="index-cell fade" style="transition-delay:.10s"><span class="index-num">04</span><span class="index-desc">O que nunca fazer com o logo</span><span class="index-name">Don'ts</span></a>
+    <a href="#cores"       class="index-cell fade" style="transition-delay:.15s"><span class="index-num">05</span><span class="index-desc">Principal, secundária, apoio + Nacional</span><span class="index-name">Paleta</span></a>
+    <a href="#tipografia"  class="index-cell fade" style="transition-delay:.20s"><span class="index-num">06</span><span class="index-desc">Hierarquia, pesos e alternativas</span><span class="index-name">Tipografia</span></a>
+    <a href="#regionais"   class="index-cell fade" style="transition-delay:.25s"><span class="index-num">07</span><span class="index-desc">Sistema das 9 cidades</span><span class="index-name">Regionais</span></a>
+    <a href="#melhorias"   class="index-cell fade" style="transition-delay:.30s"><span class="index-num">08</span><span class="index-desc">Diagnóstico e padronização</span><span class="index-name">Melhorias</span></a>
+    <a href="#referencias" class="index-cell fade" style="transition-delay:.35s"><span class="index-num">09</span><span class="index-desc">Vídeos e fotos de referência</span><span class="index-name">Referências</span></a>
+    <a href="#topo"        class="index-cell fade" style="transition-delay:.40s"><span class="index-num">01</span><span class="index-desc">Você está aqui</span><span class="index-name">Capa</span></a>
+  </div>
+</div>
+
+<hr class="divider" style="margin-top:8rem;">
+
+<!-- ═══════ 02 — LOGO PRINCIPAL ═══════ -->
+<section id="logo">
+<div class="max-w">
+  <div class="sec-label fade">02 — Logo Principal</div>
+  <div class="sec-title fade" style="transition-delay:.08s">O escudo <em>dourado.</em></div>
+  <p class="sec-body fade" style="transition-delay:.16s">
+    A marca principal é um <strong>escudo</strong> que combina autoridade e proteção — valores centrais de um evento de cibersegurança.
+    Dentro dele, o wordmark <strong>SECURITY LEADERS</strong> em letra estêncil e um skyline corporativo sobre uma elipse.
+    O acabamento dourado com gradiente metálico é assinatura da marca e deve ser preservado.
+  </p>
+
+  <div class="logo-stage">
+    <div class="shield-wrap fade">
+      <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+           alt="Security Leaders — escudo dourado"
+           width="1097" height="1300"
+           onerror="this.outerHTML='&lt;div class=&quot;img-fallback&quot;&gt;ESCUDO SL&lt;/div&gt;'">
+    </div>
+    <div class="anatomy-list fade" style="transition-delay:.12s">
+      <div class="an-row">
+        <div class="an-dot" aria-hidden="true">A</div>
+        <div><h4>Forma de escudo</h4><p>Contorno com borda dourada em gradiente metálico. Simboliza proteção e confiança. A proporção e o duplo filete da borda não devem ser alterados.</p></div>
+      </div>
+      <div class="an-row">
+        <div class="an-dot" aria-hidden="true">B</div>
+        <div><h4>Wordmark estêncil</h4><p>"SECURITY LEADERS" em tipografia estêncil, duas linhas, alinhado ao topo. É parte integrante do logo principal — não usar isoladamente em corpo de texto.</p></div>
+      </div>
+      <div class="an-row">
+        <div class="an-dot" aria-hidden="true">C</div>
+        <div><h4>Skyline + elipse</h4><p>Conjunto de edifícios corporativos sobre uma elipse (base/órbita). Representa o ambiente empresarial protegido. Centralizado no terço inferior.</p></div>
+      </div>
+      <div class="an-row">
+        <div class="an-dot" aria-hidden="true">D</div>
+        <div><h4>Gradiente dourado</h4><p>Do <strong>champagne</strong> (#F0E6B8) ao <strong>dourado médio</strong> (#C9A84C). Dá o aspecto metálico premium. Nunca achatar para um dourado chapado em aplicações principais.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:4rem;">
+    <div class="sub-label fade">Versões sobre fundos</div>
+    <div class="versions-grid">
+      <div class="ver-cell on-dark fade">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" alt="Escudo sobre fundo preto" width="110" height="130">
+        <div class="ver-cap"><div class="t">Principal · fundo preto</div><div class="s">#0A0A0A · uso preferencial</div></div>
+      </div>
+      <div class="ver-cell on-gray fade" style="transition-delay:.08s">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" alt="Escudo sobre fundo cinza" width="110" height="130">
+        <div class="ver-cap"><div class="t">Sobre cinza escuro</div><div class="s">#1A1A1A · materiais internos</div></div>
+      </div>
+      <div class="ver-cell on-light fade" style="transition-delay:.16s">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" alt="Escudo sobre fundo branco" width="110" height="130">
+        <div class="ver-cap"><div class="t">Sobre branco</div><div class="s">#FFFFFF · documentos / impressos</div></div>
+      </div>
+    </div>
+    <div class="note ok fade">
+      <div class="ico" aria-hidden="true">✓</div>
+      <p><strong>O escudo dourado funciona em fundo claro e escuro</strong> sem alteração de cor, graças à borda definida e ao gradiente metálico. Para aplicações em uma cor (gravação, baixa qualidade), a Seção 04 (Don'ts) definirá o tratamento P&amp;B.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════ 03 — APLICAÇÃO DO LOGO ═══════ -->
+<section id="aplicacao" style="background:var(--surface);max-width:100%;">
+<div class="max-w">
+  <div class="sec-label fade">03 — Aplicação do Logo</div>
+  <div class="sec-title fade" style="transition-delay:.08s">Margem, escala<br>e <em>fundos.</em></div>
+  <p class="sec-body fade" style="transition-delay:.16s">
+    O escudo foi desenhado para <strong>funcionar em qualquer escala</strong> — do banner de evento ao favicon. Mas tem limites mínimos abaixo dos quais os detalhes internos somem. Respeitar a <strong>margem de segurança</strong> e os <strong>fundos permitidos</strong> garante que a marca sempre aparece com autoridade.
+  </p>
+
+  <!-- MARGEM DE SEGURANÇA -->
+  <div style="margin-top:3.5rem;">
+    <div class="sub-label fade">Margem de segurança · área de proteção</div>
+    <div class="margin-demo fade" style="transition-delay:.1s">
+      <div class="margin-box">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             style="width:140px;height:auto;display:block;" alt="Escudo SL — margem de segurança"
+             width="140" height="175"
+             onerror="this.style.opacity='.3'">
+        <div class="margin-zone" aria-hidden="true"></div>
+        <span class="margin-arrow top"  aria-hidden="true">↕ x</span>
+        <span class="margin-arrow right" aria-hidden="true">x ↔</span>
+        <span class="margin-arrow bottom"aria-hidden="true">↕ x</span>
+        <span class="margin-arrow left"  aria-hidden="true">↔ x</span>
+      </div>
+    </div>
+    <div class="margin-legend fade" style="transition-delay:.18s">
+      <div class="ml-item"><span class="ml-label">Unidade X</span><span class="ml-val">= 1/5 da altura do escudo</span></div>
+      <div class="ml-item"><span class="ml-label">Margem mínima</span><span class="ml-val">X em todos os lados</span></div>
+      <div class="ml-item"><span class="ml-label">Recomendada</span><span class="ml-val">2× nos eixos principais</span></div>
+      <div class="ml-item"><span class="ml-label">Nunca</span><span class="ml-val" style="color:#e06464;">Elementos dentro da área X</span></div>
+    </div>
+    <div class="note warn fade" style="margin-top:1.5rem;">
+      <div class="ico" aria-hidden="true">!</div>
+      <p>Em banners com foto de palestrante, posicionar o logo no canto — <strong>nunca sobreposto ao rosto</strong>. A área de proteção existe para garantir leitura clara em qualquer contexto.</p>
+    </div>
+  </div>
+
+  <!-- REDUÇÕES: ESCUDO COMPLETO -->
+  <div style="margin-top:4rem;">
+    <div class="sub-label fade">Escudo completo · escalas de uso</div>
+    <div class="reduc-strip fade" style="transition-delay:.08s">
+
+      <div class="reduc-row" style="background:var(--cinza-escuro);">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             style="width:260px;" alt="Escudo original" width="260" height="325" onerror="this.style.opacity='.3'">
+        <div class="reduc-info">
+          <div class="reduc-px">Original · 1097 × 1300 px</div>
+          <div class="reduc-uso">Alta resolução · master para impressão e produção</div>
+          <div class="reduc-tag gold">Arquivo fonte</div>
+        </div>
+        <button class="dl-btn" onclick="downloadShield(0,'SL-escudo-original')" aria-label="Download original">↓ <span class="dl-g">download</span> · original</button>
+      </div>
+
+      <div class="reduc-row">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             style="width:260px;" alt="Escudo 260px" width="260" height="325" onerror="this.style.opacity='.3'">
+        <div class="reduc-info">
+          <div class="reduc-px">260 px</div>
+          <div class="reduc-uso">Banners institucionais, apresentações, papelaria, painel de evento</div>
+          <div class="reduc-tag gold">Escala máxima recomendada</div>
+        </div>
+        <button class="dl-btn" onclick="downloadShield(260,'SL-escudo-260px')" aria-label="Download 260px">↓ <span class="dl-g">download</span> · 260 px</button>
+      </div>
+
+      <div class="reduc-row alt">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             style="width:140px;" alt="Escudo 140px" width="140" height="175" onerror="this.style.opacity='.3'">
+        <div class="reduc-info">
+          <div class="reduc-px">140 px</div>
+          <div class="reduc-uso">Cabeçalho de site, slides, e-mail marketing, assinatura digital</div>
+          <div class="reduc-tag">Uso digital principal</div>
+        </div>
+        <button class="dl-btn" onclick="downloadShield(140,'SL-escudo-140px')" aria-label="Download 140px">↓ <span class="dl-g">download</span> · 140 px</button>
+      </div>
+
+      <div class="reduc-row">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             style="width:80px;" alt="Escudo 80px" width="80" height="100" onerror="this.style.opacity='.3'">
+        <div class="reduc-info">
+          <div class="reduc-px">80 px</div>
+          <div class="reduc-uso">Nav mobile, rodapé, materiais de apoio</div>
+          <div class="reduc-tag">Escala reduzida — detalhes ainda legíveis</div>
+        </div>
+        <button class="dl-btn" onclick="downloadShield(80,'SL-escudo-80px')" aria-label="Download 80px">↓ <span class="dl-g">download</span> · 80 px</button>
+      </div>
+
+      <div class="reduc-row alt">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             style="width:48px;" alt="Escudo 48px" width="48" height="60" onerror="this.style.opacity='.3'">
+        <div class="reduc-info">
+          <div class="reduc-px">48 px</div>
+          <div class="reduc-uso">Avatar, ícone de app, social media profile</div>
+          <div class="reduc-tag">Limite mínimo com detalhes internos</div>
+        </div>
+        <button class="dl-btn" onclick="downloadShield(48,'SL-escudo-48px')" aria-label="Download 48px">↓ <span class="dl-g">download</span> · 48 px</button>
+      </div>
+
+      <div class="reduc-row" style="background:#110d08;">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png"
+             style="width:32px;" alt="Escudo 32px" width="32" height="40" onerror="this.style.opacity='.3'">
+        <div class="reduc-info">
+          <div class="reduc-px">32 px</div>
+          <div class="reduc-uso">Favicon, notificações — wordmark interno some</div>
+          <div class="reduc-tag min">Abaixo de 48 px: silhueta simplificada recomendada</div>
+        </div>
+        <button class="dl-btn" onclick="downloadShield(32,'SL-escudo-32px')" aria-label="Download 32px">↓ <span class="dl-g">download</span> · 32 px</button>
+      </div>
+
+    </div>
+    <div class="note ok fade">
+      <div class="ico" aria-hidden="true">✓</div>
+      <p><strong>Abaixo de 48 px</strong> os detalhes internos ficam ilegíveis. O formato do escudo (silhueta) mantém o reconhecimento até 32 px — abaixo disso usar versão preenchida sólida em dourado.</p>
+    </div>
+  </div>
+
+  <!-- FUNDOS PERMITIDOS -->
+  <span id="donts" style="scroll-margin-top:56px;display:block;"></span>
+  <div style="margin-top:4rem;">
+    <div class="sub-label fade">Fundos permitidos e proibidos</div>
+    <div class="bg-grid fade" style="transition-delay:.08s">
+
+      <div class="bg-cell" style="background:#0A0A0A;">
+        <div class="bg-ok" aria-label="Permitido">✓</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.3'">
+        <div><div class="bg-name" style="color:#666;">Preto void</div><div class="bg-hex" style="color:#555;">#0A0A0A · preferencial</div></div>
+      </div>
+
+      <div class="bg-cell" style="background:#1A1A1A;">
+        <div class="bg-ok" aria-label="Permitido">✓</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.3'">
+        <div><div class="bg-name" style="color:#666;">Cinza escuro</div><div class="bg-hex" style="color:#555;">#1A1A1A · secundário</div></div>
+      </div>
+
+      <div class="bg-cell" style="background:#FFFFFF;">
+        <div class="bg-ok" aria-label="Permitido">✓</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.3'">
+        <div><div class="bg-name" style="color:#999;">Branco</div><div class="bg-hex" style="color:#bbb;">#FFFFFF · impressos</div></div>
+      </div>
+
+      <div class="bg-cell" style="background:#C9A84C;">
+        <div class="bg-ok" aria-label="Permitido">✓</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" style="filter:brightness(0);" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.3'">
+        <div><div class="bg-name" style="color:rgba(10,10,10,.6);">Dourado</div><div class="bg-hex" style="color:rgba(10,10,10,.45);">#C9A84C · logo preto</div></div>
+      </div>
+
+      <div class="bg-cell" style="background:#00D878;">
+        <div class="bg-ok" aria-label="Permitido">✓</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.3'">
+        <div><div class="bg-name" style="color:rgba(0,0,0,.7);">Verde Nacional</div><div class="bg-hex" style="color:rgba(0,0,0,.5);">#00D878</div></div>
+      </div>
+
+      <div class="bg-cell" style="background:#3a2a00;">
+        <div class="bg-no" aria-label="Proibido">✕</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" style="opacity:.5;" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.2'">
+        <div><div class="bg-name" style="color:rgba(220,100,100,.8);">Dourado escuro</div><div class="bg-hex" style="color:rgba(220,100,100,.5);">conflito com gradiente</div></div>
+      </div>
+
+      <div class="bg-cell" style="background:#4a6fa5;">
+        <div class="bg-no" aria-label="Proibido">✕</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" style="opacity:.5;" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.2'">
+        <div><div class="bg-name" style="color:rgba(220,100,100,.8);">Azul / tons frios</div><div class="bg-hex" style="color:rgba(220,100,100,.5);">fora da paleta</div></div>
+      </div>
+
+      <div class="bg-cell" style="background:linear-gradient(135deg,#222,#555);">
+        <div class="bg-no" aria-label="Proibido">✕</div>
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" style="opacity:.5;" alt="" width="80" height="100" aria-hidden="true" onerror="this.style.opacity='.2'">
+        <div><div class="bg-name" style="color:rgba(220,100,100,.8);">Gradiente genérico</div><div class="bg-hex" style="color:rgba(220,100,100,.5);">perde contraste</div></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════ 05 — PALETA DE CORES ═══════ -->
+<section id="cores" class="palette-section" style="max-width:100%;">
+<div class="max-w">
+  <div class="sec-label fade">05 — Paleta de Cores</div>
+  <div class="sec-title fade" style="transition-delay:.08s">Clique para<br><em>copiar.</em></div>
+  <p class="sec-body fade" style="transition-delay:.16s">
+    Clique em qualquer cor para copiar o código hex direto para o clipboard.
+    A paleta está organizada em <strong>principal</strong>, <strong>secundária</strong> e <strong>apoio</strong> —
+    seguida da seleção do <strong>verde do Nacional</strong> para aprovação.
+  </p>
+
+  <!-- PALETA PRINCIPAL -->
+  <div style="margin-top:3rem;">
+    <div class="sub-label fade">Principal</div>
+    <div class="swatch-main fade" style="transition-delay:.08s">
+
+      <div class="swatch-card" tabindex="0" role="button" aria-label="Copiar #0A0A0A" onclick="copyColor('#0A0A0A',this)">
+        <div class="swatch-block" style="background:#0A0A0A; border:1px solid rgba(255,255,255,.06);">
+          <div class="swatch-copy-hint">↓ copiar hex</div>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Void · Preto</div>
+          <div><span class="swatch-hex">#0A0A0A</span><span class="swatch-feedback">✓ copiado!</span></div>
+          <div class="swatch-use">Fundo dominante. Base de toda comunicação da marca.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" tabindex="0" role="button" aria-label="Copiar #C9A84C" onclick="copyColor('#C9A84C',this)">
+        <div class="swatch-block" style="background:#C9A84C;">
+          <div class="swatch-copy-hint">↓ copiar hex</div>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dourado Médio</div>
+          <div><span class="swatch-hex">#C9A84C</span><span class="swatch-feedback">✓ copiado!</span></div>
+          <div class="swatch-use">Acento principal. Títulos, bordas, elementos de destaque.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" tabindex="0" role="button" aria-label="Copiar #E8C97A" onclick="copyColor('#E8C97A',this)">
+        <div class="swatch-block" style="background:#E8C97A;">
+          <div class="swatch-copy-hint">↓ copiar hex</div>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dourado Claro</div>
+          <div><span class="swatch-hex">#E8C97A</span><span class="swatch-feedback">✓ copiado!</span></div>
+          <div class="swatch-use">Champagne. Gradiente do escudo, destaques suaves.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" tabindex="0" role="button" aria-label="Copiar #F5A500" onclick="copyColor('#F5A500',this)">
+        <div class="swatch-block" style="background:var(--amber);">
+          <div class="swatch-copy-hint" style="background:rgba(0,0,0,.28);">↓ copiar hex</div>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Amber · Destaque</div>
+          <div><span class="swatch-hex">#F5A500</span><span class="swatch-feedback">✓ copiado!</span></div>
+          <div class="swatch-use">CTA pill, títulos e badges em destaque.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" tabindex="0" role="button" aria-label="Copiar #FFFFFF" onclick="copyColor('#FFFFFF',this)">
+        <div class="swatch-block" style="background:#FFFFFF; border:1px solid rgba(255,255,255,.08);">
+          <div class="swatch-copy-hint" style="background:rgba(0,0,0,.25);">↓ copiar hex</div>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Branco · Clareza</div>
+          <div><span class="swatch-hex">#FFFFFF</span><span class="swatch-feedback">✓ copiado!</span></div>
+          <div class="swatch-use">Texto principal sobre fundo escuro. Impressos.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PALETA SECUNDÁRIA -->
+    <div class="swatch-row fade" style="transition-delay:.12s">
+
+      <div class="swatch-card sm" tabindex="0" role="button" aria-label="Copiar #1A1A1A" onclick="copyColor('#1A1A1A',this)">
+        <div class="swatch-block" style="background:#1A1A1A;"><div class="swatch-copy-hint">↓ copiar</div></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cinza Escuro</div>
+          <div><span class="swatch-hex">#1A1A1A</span><span class="swatch-feedback">✓</span></div>
+          <div class="swatch-use">Superfícies secundárias, cards.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card sm" tabindex="0" role="button" aria-label="Copiar #2A2A2A" onclick="copyColor('#2A2A2A',this)">
+        <div class="swatch-block" style="background:#2A2A2A;"><div class="swatch-copy-hint">↓ copiar</div></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cinza Médio</div>
+          <div><span class="swatch-hex">#2A2A2A</span><span class="swatch-feedback">✓</span></div>
+          <div class="swatch-use">Divisórias, bordas internas.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card sm" tabindex="0" role="button" aria-label="Copiar #F0E6B8" onclick="copyColor('#F0E6B8',this)">
+        <div class="swatch-block" style="background:#F0E6B8;"><div class="swatch-copy-hint" style="background:rgba(0,0,0,.2);">↓ copiar</div></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Champagne</div>
+          <div><span class="swatch-hex">#F0E6B8</span><span class="swatch-feedback">✓</span></div>
+          <div class="swatch-use">Tom claro do gradiente do escudo.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card sm" tabindex="0" role="button" aria-label="Copiar #7A7568" onclick="copyColor('#7A7568',this)">
+        <div class="swatch-block" style="background:#7A7568;"><div class="swatch-copy-hint">↓ copiar</div></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cinza Texto</div>
+          <div><span class="swatch-hex">#7A7568</span><span class="swatch-feedback">✓</span></div>
+          <div class="swatch-use">Texto de apoio, metadados.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card sm" tabindex="0" role="button" aria-label="Copiar #3DBA7A" onclick="copyColor('#3DBA7A',this)">
+        <div class="swatch-block" style="background:#3DBA7A;"><div class="swatch-copy-hint">↓ copiar</div></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Verde Texto</div>
+          <div><span class="swatch-hex">#3DBA7A</span><span class="swatch-feedback">✓</span></div>
+          <div class="swatch-use">Labels, badges, status positivo.</div>
+        </div>
+      </div>
+
+      <div class="swatch-card sm" tabindex="0" role="button" aria-label="Copiar #131313" onclick="copyColor('#131313',this)">
+        <div class="swatch-block" style="background:#131313; border:1px solid rgba(255,255,255,.05);"><div class="swatch-copy-hint">↓ copiar</div></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Surface</div>
+          <div><span class="swatch-hex">#131313</span><span class="swatch-feedback">✓</span></div>
+          <div class="swatch-use">Seções alternadas de fundo.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AMBER / AMARELO DE DESTAQUE -->
+  <div style="margin-top:3.5rem;">
+    <div class="sub-label fade">Amarelo · CTA e títulos em destaque</div>
+
+    <div class="fade" style="transition-delay:.06s;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--borda-fraca);margin-top:1rem;">
+
+      <!-- Swatch clicável -->
+      <div class="swatch-card" tabindex="0" role="button" aria-label="Copiar #F5A500" onclick="copyColor('#F5A500',this)">
+        <div class="swatch-block" style="background:var(--amber);min-height:140px;">
+          <div class="swatch-copy-hint" style="background:rgba(0,0,0,.3);">↓ copiar hex</div>
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name">Amber · Destaque</div>
+          <div><span class="swatch-hex">#F5A500</span><span class="swatch-feedback">✓ copiado!</span></div>
+          <div class="swatch-use">Botão CTA secundário e títulos em destaque. Texto sempre preto sobre este fundo.</div>
+        </div>
+      </div>
+
+      <!-- Demos de uso inline -->
+      <div style="background:var(--preto);padding:2rem;display:flex;flex-direction:column;gap:1.8rem;justify-content:center;">
+
+        <!-- Pill CTA -->
+        <div>
+          <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);margin-bottom:.8rem;">Botão CTA · pill</div>
+          <button style="background:var(--amber);color:#000;font-family:'Kode Mono',monospace;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border:none;padding:11px 24px;border-radius:50px;cursor:default;display:inline-block;">PALESTRANTE E CURADOR</button>
+        </div>
+
+        <!-- Título em destaque -->
+        <div>
+          <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);margin-bottom:.6rem;">Título em destaque</div>
+          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:2rem;line-height:.9;letter-spacing:-.01em;color:#FFFFFF;">Security<br><span style="color:var(--amber);">Leaders</span></div>
+        </div>
+
+        <!-- Badge flat -->
+        <div>
+          <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);margin-bottom:.6rem;">Badge inline</div>
+          <span style="background:var(--amber);color:#000;font-family:'Kode Mono',monospace;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:3px;">CURADOR</span>
+          <span style="background:var(--amber);color:#000;font-family:'Kode Mono',monospace;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:3px;margin-left:.5rem;">PALESTRANTE</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="note warn fade" style="margin-top:1rem;transition-delay:.1s;">
+      <div class="ico" aria-hidden="true">!</div>
+      <p>O amber é usado sobre <strong>fundo escuro</strong> — preto ou cinza escuro. Texto sobre o amber deve ser sempre <strong>preto (#000)</strong> para contraste adequado. Não combinar com o dourado (#C9A84C) no mesmo elemento.</p>
+    </div>
+  </div>
+
+  <!-- VERDE DO NACIONAL -->
+  <div style="margin-top:3.5rem;">
+    <div class="sub-label fade">Verde Nacional · detalhe e acento</div>
+    <div class="note warn fade" style="transition-delay:.06s;margin-bottom:1.5rem;">
+      <div class="ico" aria-hidden="true">!</div>
+      <p>O verde é usado <strong>exclusivamente como detalhe</strong> — borda com glow, botão CTA, badge, linha de acento.
+      Nunca como fundo dominante. Identificado em <code style="font-family:'Kode Mono',monospace;font-size:.85em;">securityleaders.com.br</code> (edição Nacional 2026).</p>
+    </div>
+
+    <!-- Showcase: card estilo site + swatch clicável -->
+    <div class="fade" style="transition-delay:.1s;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--borda-fraca);">
+
+      <!-- Card simulando o estilo do site -->
+      <div style="background:#0D1117;padding:2rem;">
+        <div style="border:1px solid var(--verde);box-shadow:0 0 40px var(--verde-glow),0 8px 48px rgba(0,0,0,.9),inset 0 0 80px rgba(0,216,120,.04);background:linear-gradient(160deg,#0c1810 0%,#0D1117 45%,#090f0c 100%);border-radius:10px;padding:1.8rem;display:flex;flex-direction:column;gap:1.2rem;max-width:320px;margin:0 auto;">
+          <div style="display:flex;align-items:center;gap:.6rem;">
+            <div style="width:5px;height:5px;background:var(--verde);border-radius:50%;box-shadow:0 0 10px var(--verde);flex-shrink:0;"></div>
+            <div style="font-family:'Kode Mono',monospace;font-size:.52rem;letter-spacing:.2em;color:var(--verde);opacity:.65;">SL · NACIONAL · 2026</div>
+          </div>
+          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.5rem;color:var(--verde);letter-spacing:.01em;line-height:1;white-space:nowrap;">Adquira sua credencial</div>
+          <div style="width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,216,120,.35),transparent);"></div>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.65;margin:0;font-weight:300;"><strong style="color:#fff;">Compre sua credencial</strong> na plataforma do Security Leaders e conecte-se com os principais líderes do setor.</p>
+          <div style="display:flex;justify-content:center;padding:.8rem 0 .4rem;">
+            <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" style="width:80px;height:auto;filter:drop-shadow(0 0 22px rgba(201,168,76,.55)) drop-shadow(0 4px 12px rgba(0,0,0,.9));" alt="" aria-hidden="true" onerror="this.style.display='none'">
+          </div>
+          <button style="background:var(--verde);color:#000;font-family:'Kode Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;border:none;padding:14px;border-radius:6px;cursor:default;width:100%;font-weight:700;box-shadow:0 0 20px rgba(0,216,120,.4);">COMPRAR INGRESSO</button>
+        </div>
+        <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza-txt);margin-top:1rem;text-align:center;">Referência visual · securityleaders.com.br</div>
+      </div>
+
+      <!-- Swatch clicável + regras de uso -->
+      <div style="background:var(--preto);padding:2rem;display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="swatch-card" tabindex="0" role="button" aria-label="Copiar #00D878" onclick="copyColor('#00D878',this)" style="max-width:280px;">
+          <div class="swatch-block" style="background:var(--verde);min-height:80px;">
+            <div class="swatch-copy-hint">↓ copiar hex</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-name">Verde Nacional</div>
+            <div><span class="swatch-hex">#00D878</span><span class="swatch-feedback">✓ copiado!</span></div>
+            <div class="swatch-use">Cyber green · identidade do Nacional</div>
+          </div>
+        </div>
+        <div style="font-size:.75rem;color:var(--cinza-txt);line-height:1.7;">
+          <div style="color:var(--branco);font-family:'Kode Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem;">Onde usar:</div>
+          <div style="display:flex;flex-direction:column;gap:.35rem;">
+            <div style="display:flex;align-items:center;gap:.5rem;"><span style="color:var(--verde);font-size:.7rem;">→</span> Borda de card com glow</div>
+            <div style="display:flex;align-items:center;gap:.5rem;"><span style="color:var(--verde);font-size:.7rem;">→</span> Botão CTA principal</div>
+            <div style="display:flex;align-items:center;gap:.5rem;"><span style="color:var(--verde);font-size:.7rem;">→</span> Badge/tag "NACIONAL"</div>
+            <div style="display:flex;align-items:center;gap:.5rem;"><span style="color:var(--verde);font-size:.7rem;">→</span> Linha de acento horizontal</div>
+            <div style="display:flex;align-items:center;gap:.5rem;"><span style="color:var(--verde);font-size:.7rem;">→</span> Texto de destaque</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4 exemplos de uso isolados -->
+    <div class="fade" style="transition-delay:.15s;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--borda-fraca);margin-top:1px;">
+
+      <div style="background:var(--preto);padding:1.4rem 1.2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Borda · glow</div>
+        <div style="border:1px solid var(--verde);box-shadow:0 0 10px var(--verde-glow);background:#0D1117;border-radius:7px;padding:.8rem 1rem;width:100%;text-align:center;">
+          <span style="font-size:.68rem;color:rgba(255,255,255,.35);font-family:'Kode Mono',monospace;font-size:.6rem;">card nacional</span>
+        </div>
+      </div>
+
+      <div style="background:var(--preto);padding:1.4rem 1.2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Botão CTA</div>
+        <button style="background:var(--verde);color:#000;font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;border:none;padding:10px 16px;border-radius:6px;font-weight:700;cursor:default;width:100%;">INSCREVA-SE</button>
+      </div>
+
+      <div style="background:var(--preto);padding:1.4rem 1.2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Badge · tag</div>
+        <span style="font-family:'Kode Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--verde);border:1px solid var(--verde);padding:5px 12px;border-radius:3px;">NACIONAL</span>
+      </div>
+
+      <div style="background:var(--preto);padding:1.4rem 1.2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;justify-content:center;">
+        <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Linha acento</div>
+        <div style="width:100%;display:flex;flex-direction:column;gap:.5rem;">
+          <div style="width:100%;height:2px;background:linear-gradient(90deg,var(--verde),transparent);border-radius:1px;"></div>
+          <div style="width:60%;height:1px;background:rgba(0,216,120,.3);border-radius:1px;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DEMOS DE APLICAÇÃO -->
+  <div style="margin-top:3.5rem;">
+    <div class="sub-label fade">Demos · cores em contexto real</div>
+    <div class="demo-grid fade" style="transition-delay:.08s">
+
+      <!-- DEMO 1: Peça regional (fundo escuro + dourado) -->
+      <div class="demo-card">
+        <div class="demo-label-bar">Peça Regional <span>#0A0A0A + #C9A84C</span></div>
+        <div class="demo-canvas" style="background:#0A0A0A; position:relative; overflow:hidden; min-height:180px;">
+          <!-- diagonal decorativa -->
+          <div style="position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 100px 100px 0;border-color:transparent rgba(201,168,76,.08) transparent transparent;"></div>
+          <div style="position:absolute;bottom:0;left:0;width:60%;height:1px;background:linear-gradient(90deg,rgba(201,168,76,.35),transparent);"></div>
+          <!-- conteúdo -->
+          <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.6);margin-bottom:.8rem;">Security Leaders</div>
+          <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:2.6rem;line-height:.9;letter-spacing:-.02em;color:#FFFFFF;margin-bottom:.3rem;">Belo<br><span style="color:var(--amber);">Horizonte</span></div>
+          <div style="font-family:'Kode Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.8rem;">// 2026 · edição regional</div>
+        </div>
+      </div>
+
+      <!-- DEMO 2: Card de patrocinador -->
+      <div class="demo-card">
+        <div class="demo-label-bar">Card Patrocinador <span>#FFFFFF sobre #0A0A0A</span></div>
+        <div class="demo-canvas" style="background:#0A0A0A; min-height:180px; display:flex; flex-direction:column; gap:1rem;">
+          <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);">Patrocinador Oficial</div>
+          <div style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;">
+            <div style="background:#FFFFFF;border-radius:6px;padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:center;min-width:110px;min-height:52px;">
+              <span style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;text-transform:uppercase;color:#0A0A0A;font-size:.75rem;letter-spacing:.04em;">Logo Marca</span>
+            </div>
+            <div style="background:#FFFFFF;border-radius:6px;padding:.7rem 1.2rem;display:flex;align-items:center;justify-content:center;min-width:90px;min-height:52px;">
+              <span style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;text-transform:uppercase;color:#0A0A0A;font-size:.75rem;">Apoio</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.2rem;">
+            <span style="font-family:'Kode Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(201,168,76,.3);padding:3px 8px;border-radius:2px;">Patrocinador Master</span>
+            <span style="font-family:'Kode Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(201,168,76,.3);padding:3px 8px;border-radius:2px;">Apoio Oficial</span>
+            <span style="font-family:'Kode Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:#3DBA7A;border:1px solid rgba(61,186,122,.3);padding:3px 8px;border-radius:2px;">Nacional</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEMO 3: Assinatura digital / e-mail -->
+      <div class="demo-card">
+        <div class="demo-label-bar">Assinatura Digital <span>#1A1A1A · Dourado</span></div>
+        <div class="demo-canvas" style="background:#1A1A1A; min-height:180px; display:flex; flex-direction:column; gap:.9rem;">
+          <div style="display:flex;align-items:center;gap:.9rem;padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.06);">
+            <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" style="width:36px;height:auto;" alt="" aria-hidden="true" onerror="this.style.opacity='.3'">
+            <div>
+              <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;text-transform:uppercase;font-size:1rem;letter-spacing:.03em;color:#FFFFFF;">Security <span style="color:var(--amber);">Leaders</span></div>
+              <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:#7A7568;text-transform:uppercase;">Brand Guide · 2026</div>
+            </div>
+          </div>
+          <div style="font-size:.78rem;color:#7A7568;font-weight:300;line-height:1.6;">Rafael Allisboa<br><span style="color:#FFFFFF;">Diretor de Marketing</span><br><span style="color:var(--amber);font-family:'Kode Mono',monospace;font-size:.65rem;">securityleaders.com.br</span></div>
+        </div>
+      </div>
+
+      <!-- DEMO 4: Edição Nacional -->
+      <div class="demo-card">
+        <div class="demo-label-bar">Edição Nacional <span style="color:var(--verde);">#00D878 como detalhe</span></div>
+        <div class="demo-canvas" style="background:#0D1117; position:relative; overflow:hidden; min-height:180px; border:1px solid var(--verde); box-shadow:0 0 18px var(--verde-glow); border-radius:4px;">
+          <!-- linha superior verde -->
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--verde),rgba(0,216,120,.2),transparent);"></div>
+          <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--verde);margin-bottom:.8rem;opacity:.8;">Security Leaders</div>
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.8rem;">
+            <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png" style="width:46px;height:auto;" alt="" aria-hidden="true" width="46" height="58" onerror="this.style.opacity='.3'">
+            <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;text-transform:uppercase;font-size:2rem;line-height:.88;letter-spacing:-.02em;color:#FFFFFF;">Nacional<br><span style="color:var(--verde);">2026</span></div>
+          </div>
+          <div style="font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem;">// edição principal · São Paulo</div>
+          <button style="background:var(--verde);color:#000;font-family:'Kode Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;border:none;padding:9px 18px;border-radius:6px;font-weight:700;cursor:default;">COMPRAR INGRESSO</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="note warn fade" style="margin-top:1rem;">
+      <div class="ico" aria-hidden="true">!</div>
+      <p>As demos acima são <strong>mockups conceituais</strong> para validação das cores — não são peças finalizadas. Os elementos gráficos decorativos (diagonais, texturas binárias) variam por peça. O que está sendo aprovado aqui é o <strong>sistema de cores</strong>.</p>
+    </div>
+
+    <hr class="divider" style="margin:3.5rem 0 2.5rem;">
+
+    <!-- ── REPOSITÓRIO DE ASSETS ── -->
+    <div class="sec-label fade">Assets · Download PNG</div>
+    <h2 class="sec-title fade" style="transition-delay:.06s">Repositório<br><em>de assets.</em></h2>
+    <p class="sec-desc fade" style="transition-delay:.10s;max-width:580px;">PNG com fundo transparente, prontos para uso em peças, apresentações e materiais de comunicação.</p>
+
+    <!-- BOTÕES -->
+    <div class="asset-repo-sub fade" style="transition-delay:.12s;">// Botões</div>
+    <div class="asset-grid cols-2 fade" style="transition-delay:.14s;">
+      <div class="asset-card">
+        <div class="asset-preview">
+          <svg id="btn-inscreva" viewBox="0 0 240 52" width="240" height="52" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="238" height="50" rx="5" fill="#00D878"/>
+            <text x="120" y="32" font-family="monospace" font-size="11" font-weight="700" letter-spacing="3" fill="#000" text-anchor="middle" dominant-baseline="middle">INSCREVA-SE</text>
+          </svg>
+        </div>
+        <div class="asset-label">Botão · inscreva-se<br>verde sólido · fundo transparente</div>
+        <button class="dl-btn" onclick="dlSVG('btn-inscreva','SL-botao-inscreva-se',480,104,null)">↓ <span class="dl-g">download</span> · PNG</button>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview">
+          <svg id="btn-inscreva-agora" viewBox="0 0 280 52" width="280" height="52" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="278" height="50" rx="5" fill="none" stroke="#00D878" stroke-width="1.5"/>
+            <text x="140" y="32" font-family="monospace" font-size="11" font-weight="700" letter-spacing="2.5" fill="#00D878" text-anchor="middle" dominant-baseline="middle">INSCREVA-SE AGORA</text>
+          </svg>
+        </div>
+        <div class="asset-label">Botão · inscreva-se agora<br>verde outline · fundo transparente</div>
+        <button class="dl-btn" onclick="dlSVG('btn-inscreva-agora','SL-botao-inscreva-se-agora',560,104,null)">↓ <span class="dl-g">download</span> · PNG</button>
+      </div>
+    </div>
+
+    <!-- LINHAS -->
+    <div class="asset-repo-sub fade" style="transition-delay:.16s;">// Linhas decorativas</div>
+    <div class="asset-grid cols-2 fade" style="transition-delay:.18s;">
+      <div class="asset-card">
+        <div class="asset-preview">
+          <svg id="line-verde" viewBox="0 0 400 8" width="100%" height="8" xmlns="http://www.w3.org/2000/svg" style="max-width:360px;">
+            <defs><linearGradient id="lgv" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00D878" stop-opacity="0"/><stop offset="50%" stop-color="#00D878"/><stop offset="100%" stop-color="#00D878" stop-opacity="0"/></linearGradient></defs>
+            <rect x="0" y="3" width="400" height="2" fill="url(#lgv)" rx="1"/>
+          </svg>
+        </div>
+        <div class="asset-label">Linha · verde Nacional<br>gradiente · fundo transparente</div>
+        <button class="dl-btn" onclick="dlSVG('line-verde','SL-linha-verde',1200,8,null)">↓ <span class="dl-g">download</span> · PNG</button>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview">
+          <svg id="line-gold" viewBox="0 0 400 8" width="100%" height="8" xmlns="http://www.w3.org/2000/svg" style="max-width:360px;">
+            <defs><linearGradient id="lgg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9A84C" stop-opacity="0"/><stop offset="50%" stop-color="#E8C97A"/><stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/></linearGradient></defs>
+            <rect x="0" y="3" width="400" height="2" fill="url(#lgg)" rx="1"/>
+          </svg>
+        </div>
+        <div class="asset-label">Linha · dourado<br>gradiente · fundo transparente</div>
+        <button class="dl-btn" onclick="dlSVG('line-gold','SL-linha-dourado',1200,8,null)">↓ <span class="dl-g">download</span> · PNG</button>
+      </div>
+    </div>
+
+    <!-- ÍCONES -->
+    <div class="asset-repo-sub fade" style="transition-delay:.20s;">// Ícones · Cibersegurança</div>
+
+    <div class="icon-tabs fade" style="transition-delay:.21s;">
+      <button class="icon-tab active" onclick="setIconMode('white',this)">Branco</button>
+      <button class="icon-tab" onclick="setIconMode('gold',this)">Dourado</button>
+      <button class="icon-tab" onclick="setIconMode('black',this)">Preto</button>
+      <button class="icon-tab" style="flex:none;padding:.8rem 1.6rem;color:var(--amber);border-left:1px solid var(--borda-fraca);" onclick="dlAllIcons(this)">↓ ZIP · todos</button>
+    </div>
+
+    <div class="asset-grid cols-5 fade" id="asset-icon-grid" style="transition-delay:.22s;">
+
+
+      <!-- N01 LOCAL -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-location" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 6C21.5 6 13 14.5 13 25C13 38 32 58 32 58C32 58 51 38 51 25C51 14.5 42.5 6 32 6Z"/>
+            <circle cx="32" cy="25" r="8"/>
+          </svg></div>
+        <div class="asset-label">Local<br>localização</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-location','SL-icone-local',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N02 TICKET -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-ticket" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 20C8 19 9 18 10 18H54C55 18 56 19 56 20V27C54 27 52 29 52 32C52 35 54 37 56 37V44C56 45 55 46 54 46H10C9 46 8 45 8 44V37C10 37 12 35 12 32C12 29 10 27 8 27V20Z"/>
+            <line x1="24" y1="18" x2="24" y2="46"/>
+            <line x1="30" y1="25" x2="50" y2="25"/>
+            <line x1="30" y1="32" x2="46" y2="32"/>
+            <line x1="30" y1="39" x2="42" y2="39"/>
+          </svg></div>
+        <div class="asset-label">Ticket<br>ingresso</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-ticket','SL-icone-ticket',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N03 SETAS -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-arrows" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="32" y1="8" x2="32" y2="56"/>
+            <line x1="8" y1="32" x2="56" y2="32"/>
+            <polyline points="26,15 32,8 38,15"/>
+            <polyline points="26,49 32,56 38,49"/>
+            <polyline points="15,26 8,32 15,38"/>
+            <polyline points="49,26 56,32 49,38"/>
+          </svg></div>
+        <div class="asset-label">Setas<br>todas direções</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-arrows','SL-icone-setas',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N04 SETA ESQUERDA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-arrow-left" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="54" y1="32" x2="10" y2="32"/>
+            <polyline points="22,20 10,32 22,44"/>
+          </svg></div>
+        <div class="asset-label">Seta<br>esquerda</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-arrow-left','SL-icone-seta-esquerda',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N05 SETA DIREITA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-arrow-right" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="10" y1="32" x2="54" y2="32"/>
+            <polyline points="42,20 54,32 42,44"/>
+          </svg></div>
+        <div class="asset-label">Seta<br>direita</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-arrow-right','SL-icone-seta-direita',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N06 SETA CIMA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-arrow-up" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="32" y1="54" x2="32" y2="10"/>
+            <polyline points="20,22 32,10 44,22"/>
+          </svg></div>
+        <div class="asset-label">Seta<br>cima</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-arrow-up','SL-icone-seta-cima',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N07 SETA BAIXO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-arrow-down" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="32" y1="10" x2="32" y2="54"/>
+            <polyline points="20,42 32,54 44,42"/>
+          </svg></div>
+        <div class="asset-label">Seta<br>baixo</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-arrow-down','SL-icone-seta-baixo',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N08 ESCUDO LOGO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-shield-logo" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 6L54 15V34C54 48 32 58 32 58C32 58 10 48 10 34V15Z"/>
+            <path d="M32 14L47 21V34C47 44 32 52 32 52C32 52 17 44 17 34V21Z"/>
+            <line x1="26" y1="33" x2="32" y2="39"/>
+            <line x1="32" y1="39" x2="42" y2="27"/>
+          </svg></div>
+        <div class="asset-label">Escudo<br>formato logo</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-shield-logo','SL-icone-escudo-logo',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N05 CALENDÁRIO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-calendar" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="14" width="48" height="42" rx="3"/>
+            <line x1="8" y1="26" x2="56" y2="26"/>
+            <line x1="22" y1="8" x2="22" y2="20"/>
+            <line x1="42" y1="8" x2="42" y2="20"/>
+            <line x1="18" y1="35" x2="24" y2="35"/><line x1="30" y1="35" x2="36" y2="35"/><line x1="42" y1="35" x2="48" y2="35"/>
+            <line x1="18" y1="44" x2="24" y2="44"/><line x1="30" y1="44" x2="36" y2="44"/><line x1="42" y1="44" x2="48" y2="44"/>
+          </svg></div>
+        <div class="asset-label">Calendário<br>data · evento</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-calendar','SL-icone-calendario',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N06 WHATSAPP -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-whatsapp" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 10C19.9 10 10 19.9 10 32C10 36.2 11.2 40.1 13.3 43.5L10 54L21 50.7C24.2 52.7 28 53.8 32 53.8C44.1 53.8 54 43.9 54 32C54 19.9 44.1 10 32 10Z"/>
+            <path d="M25.5 22.5C25 22 24 22 23.5 22.5C23 23 22 24.5 22 26C22 27.5 23 30 24 31.5L28 36.5C29.5 38.5 32 41 35 42C38 43 40 42.5 41.5 41C43 39.5 43.5 38 43 37C42.5 36 41 35 39.5 34.5C38 34 37.5 34.5 37 35L35.5 36.5C35 37 34.5 37 34 36.5C33.5 36 31.5 34 30 31.5C28.5 29 28 27.5 28 27C28 26.5 28.5 26 29 25.5L30.5 24C31 23.5 31 23 30.5 22.5L28 20.5C27.5 20 26.5 20 26 20.5L25.5 22.5Z" stroke-width="1.6"/>
+          </svg></div>
+        <div class="asset-label">WhatsApp<br>mensagem</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-whatsapp','SL-icone-whatsapp',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N07 INSTAGRAM -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-instagram" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Rounded square — Instagram squircle shape -->
+            <rect x="8" y="8" width="48" height="48" rx="15" stroke-width="2"/>
+            <!-- Lens circle — large, prominent -->
+            <circle cx="32" cy="32" r="13" stroke-width="2"/>
+            <!-- Lens inner ring -->
+            <circle cx="32" cy="32" r="5" stroke-width="1.4"/>
+            <!-- Flash dot — top right -->
+            <circle cx="46" cy="18" r="3.5" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Instagram<br>social</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-instagram','SL-icone-instagram',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N08 LINKEDIN -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-linkedin" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-linecap="square" stroke-linejoin="miter">
+            <!-- Square bg -->
+            <rect x="8" y="8" width="48" height="48" rx="7" stroke-width="1.8" stroke-linecap="round"/>
+            <!-- "i" — dot + stem -->
+            <circle cx="19" cy="17" r="3.5" fill="#ffffff" stroke="none"/>
+            <line x1="19" y1="24" x2="19" y2="47" stroke-width="5"/>
+            <!-- "n" — left stem + arch + right stem -->
+            <line x1="29" y1="24" x2="29" y2="47" stroke-width="5"/>
+            <path d="M29 32C29 24 46 24 46 32V47" stroke-width="5" stroke-linecap="butt"/>
+          </svg></div>
+        <div class="asset-label">LinkedIn<br>profissional</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-linkedin','SL-icone-linkedin',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- N09 WEBSITE -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-website" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="10" width="52" height="44" rx="4"/>
+            <line x1="6" y1="22" x2="58" y2="22"/>
+            <circle cx="16" cy="16" r="2.5" fill="#ffffff" stroke="none"/>
+            <circle cx="24" cy="16" r="2.5" fill="#ffffff" stroke="none"/>
+            <circle cx="32" cy="16" r="2.5" fill="#ffffff" stroke="none"/>
+            <rect x="14" y="30" width="36" height="3" rx="1.5"/>
+            <rect x="14" y="38" width="26" height="3" rx="1.5"/>
+            <rect x="14" y="46" width="18" height="3" rx="1.5"/>
+          </svg></div>
+        <div class="asset-label">Website<br>browser</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-website','SL-icone-website',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 01 ESCUDO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-shield" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 8L52 17V32C52 45 32 57 32 57C32 57 12 45 12 32V17Z"/>
+            <path d="M23 31L29 38L41 26"/>
+          </svg></div>
+        <div class="asset-label">Escudo<br>proteção</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-shield','SL-icone-escudo',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 02 CADEADO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-lock" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="14" y="28" width="36" height="28" rx="3"/>
+            <path d="M22 28V21C22 15 26.5 10 32 10C37.5 10 42 15 42 21V28"/>
+            <circle cx="32" cy="42" r="3" fill="#ffffff" stroke="none"/>
+            <line x1="32" y1="45" x2="32" y2="49"/>
+          </svg></div>
+        <div class="asset-label">Cadeado<br>autenticação</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-lock','SL-icone-cadeado',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 03 OLHO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-eye" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 32C13 20 22 14 32 14C42 14 51 20 56 32C51 44 42 50 32 50C22 50 13 44 8 32Z"/>
+            <circle cx="32" cy="32" r="9"/>
+            <circle cx="32" cy="32" r="3" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Monitoramento<br>visibilidade</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-eye','SL-icone-monitoramento',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 04 BUG -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-bug" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="36" r="14"/>
+            <path d="M26 22C26 19 28.7 17 32 17C35.3 17 38 19 38 22"/>
+            <line x1="26" y1="22" x2="22" y2="17"/><line x1="38" y1="22" x2="42" y2="17"/>
+            <line x1="18" y1="29" x2="10" y2="26"/><line x1="18" y1="36" x2="10" y2="36"/><line x1="18" y1="43" x2="10" y2="46"/>
+            <line x1="46" y1="29" x2="54" y2="26"/><line x1="46" y1="36" x2="54" y2="36"/><line x1="46" y1="43" x2="54" y2="46"/>
+            <line x1="27" y1="31" x2="37" y2="41"/><line x1="37" y1="31" x2="27" y2="41"/>
+          </svg></div>
+        <div class="asset-label">Ameaça<br>malware</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-bug','SL-icone-ameaca',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 05 DIGITAL -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-fingerprint" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
+            <path d="M10 52C7 38 8 18 32 13C56 18 57 38 54 52"/>
+            <path d="M16 52C14 40 14 24 32 20C50 24 50 40 48 52"/>
+            <path d="M22 52C21 42 22 32 32 28C42 32 43 42 42 52"/>
+            <path d="M28 52C28 44 28 38 32 36C36 38 36 44 36 52"/>
+          </svg></div>
+        <div class="asset-label">Identidade<br>biometria</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-fingerprint','SL-icone-biometria',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 06 REDE -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-network" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="32" cy="12" r="5"/>
+            <circle cx="12" cy="48" r="5"/>
+            <circle cx="52" cy="48" r="5"/>
+            <circle cx="32" cy="32" r="4"/>
+            <line x1="32" y1="17" x2="32" y2="28"/>
+            <line x1="29" y1="35" x2="15" y2="43"/>
+            <line x1="35" y1="35" x2="49" y2="43"/>
+            <line x1="17" y1="48" x2="47" y2="48"/>
+          </svg></div>
+        <div class="asset-label">Rede<br>infraestrutura</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-network','SL-icone-rede',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 07 CHAVE -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-key" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="22" cy="26" r="12"/>
+            <circle cx="22" cy="26" r="5"/>
+            <line x1="34" y1="26" x2="56" y2="26"/>
+            <line x1="48" y1="26" x2="48" y2="34"/>
+            <line x1="54" y1="26" x2="54" y2="32"/>
+          </svg></div>
+        <div class="asset-label">Chave<br>acesso</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-key','SL-icone-chave',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 08 CHIP -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-chip" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
+            <rect x="18" y="18" width="28" height="28" rx="3"/>
+            <rect x="24" y="24" width="16" height="16" rx="1"/>
+            <line x1="12" y1="25" x2="18" y2="25"/><line x1="12" y1="32" x2="18" y2="32"/><line x1="12" y1="39" x2="18" y2="39"/>
+            <line x1="46" y1="25" x2="52" y2="25"/><line x1="46" y1="32" x2="52" y2="32"/><line x1="46" y1="39" x2="52" y2="39"/>
+            <line x1="25" y1="12" x2="25" y2="18"/><line x1="32" y1="12" x2="32" y2="18"/><line x1="39" y1="12" x2="39" y2="18"/>
+            <line x1="25" y1="46" x2="25" y2="52"/><line x1="32" y1="46" x2="32" y2="52"/><line x1="39" y1="46" x2="39" y2="52"/>
+          </svg></div>
+        <div class="asset-label">Chip · CPU<br>hardware</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-chip','SL-icone-chip',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 09 NUVEM -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-cloud" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M44 44H20C14 44 9 39 9 33C9 28 13 24 18 23C19 17 24 12 31 12C38 12 43 17 44 23C46 23 55 26 55 34C55 40 50 44 44 44Z"/>
+            <rect x="24" y="34" width="16" height="13" rx="2"/>
+            <path d="M28 34V30C28 27.2 30 25 32 25C34 25 36 27.2 36 30V34"/>
+          </svg></div>
+        <div class="asset-label">Nuvem<br>cloud security</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-cloud','SL-icone-cloud',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 10 ALERTA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-alert" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 10L57 53H7Z"/>
+            <line x1="32" y1="28" x2="32" y2="40"/>
+            <circle cx="32" cy="47" r="2" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Alerta<br>incidente</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-alert','SL-icone-alerta',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 11 RADAR -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-radar" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="32" cy="32" r="22"/>
+            <circle cx="32" cy="32" r="14"/>
+            <circle cx="32" cy="32" r="6"/>
+            <line x1="32" y1="10" x2="32" y2="8"/><line x1="54" y1="32" x2="56" y2="32"/>
+            <line x1="10" y1="32" x2="8" y2="32"/><line x1="32" y1="54" x2="32" y2="56"/>
+            <line x1="32" y1="32" x2="46" y2="20"/>
+            <circle cx="46" cy="20" r="2.5" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Radar<br>detecção</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-radar','SL-icone-radar',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 12 DADOS -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-data" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
+            <ellipse cx="32" cy="16" rx="18" ry="7"/>
+            <path d="M14 16V32C14 36 22.3 39 32 39C41.7 39 50 36 50 32V16"/>
+            <path d="M14 32V48C14 52 22.3 55 32 55C41.7 55 50 52 50 48V32"/>
+          </svg></div>
+        <div class="asset-label">Banco de dados<br>proteção</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-data','SL-icone-dados',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 13 TERMINAL -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-terminal" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="10" width="48" height="44" rx="4"/>
+            <polyline points="16,24 22,30 16,36"/>
+            <line x1="26" y1="36" x2="42" y2="36"/>
+          </svg></div>
+        <div class="asset-label">Terminal<br>CLI</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-terminal','SL-icone-terminal',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 14 WIFI -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-wifi" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 28C12 18 21 13 32 13C43 13 52 18 58 28"/>
+            <path d="M13 35C17 28 24 24 32 24C40 24 47 28 51 35"/>
+            <path d="M20 42C23 38 27 35 32 35C37 35 41 38 44 42"/>
+            <circle cx="32" cy="50" r="3" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Wireless<br>sem fio</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-wifi','SL-icone-wifi',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 15 CÂMERA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-camera" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="18" width="38" height="28" rx="3"/>
+            <polygon points="44,22 58,14 58,50 44,44"/>
+            <circle cx="24" cy="32" r="9"/>
+            <circle cx="24" cy="32" r="3.5"/>
+            <circle cx="24" cy="32" r="1.5" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Câmera<br>vigilância</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-camera','SL-icone-camera',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 16 SERVIDOR -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-server" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="10" y="8" width="44" height="14" rx="2"/>
+            <rect x="10" y="26" width="44" height="14" rx="2"/>
+            <rect x="10" y="44" width="44" height="14" rx="2"/>
+            <circle cx="46" cy="15" r="2.5" fill="#ffffff" stroke="none"/>
+            <circle cx="46" cy="33" r="2.5" fill="#ffffff" stroke="none"/>
+            <circle cx="46" cy="51" r="2.5" fill="#ffffff" stroke="none"/>
+            <line x1="16" y1="15" x2="32" y2="15"/>
+            <line x1="16" y1="33" x2="32" y2="33"/>
+            <line x1="16" y1="51" x2="32" y2="51"/>
+          </svg></div>
+        <div class="asset-label">Servidor<br>datacenter</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-server','SL-icone-servidor',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 17 GLOBO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-globe" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="22"/>
+            <ellipse cx="32" cy="32" rx="10" ry="22"/>
+            <path d="M10 32C15 28 22 26 32 26C42 26 49 28 54 32"/>
+            <path d="M10 32C15 36 22 38 32 38C42 38 49 36 54 32"/>
+          </svg></div>
+        <div class="asset-label">Internet<br>web security</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-globe','SL-icone-globo',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 18 FIREWALL -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-firewall" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="8" width="12" height="9" rx="1"/><rect x="24" y="8" width="16" height="9" rx="1"/><rect x="44" y="8" width="12" height="9" rx="1"/>
+            <rect x="8" y="21" width="20" height="9" rx="1"/><rect x="32" y="21" width="24" height="9" rx="1"/>
+            <rect x="8" y="34" width="12" height="9" rx="1"/><rect x="24" y="34" width="16" height="9" rx="1"/><rect x="44" y="34" width="12" height="9" rx="1"/>
+            <line x1="32" y1="46" x2="32" y2="57"/>
+            <polyline points="27,53 32,58 37,53"/>
+          </svg></div>
+        <div class="asset-label">Firewall<br>barreira de rede</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-firewall','SL-icone-firewall',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 19 USER SHIELD -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-usershield" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 8L52 17V32C52 45 32 57 32 57C32 57 12 45 12 32V17Z"/>
+            <circle cx="32" cy="24" r="7"/>
+            <path d="M20 50C20 42 25.5 37 32 37C38.5 37 44 42 44 50"/>
+          </svg></div>
+        <div class="asset-label">Identidade<br>usuário</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-usershield','SL-icone-identidade',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 20 CERTIFICADO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-certificate" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="12" y="8" width="40" height="30" rx="3"/>
+            <path d="M22 38L18 57L28 51L32 57L36 51L46 57L42 38"/>
+            <path d="M32 13L33.8 18.5H39.5L35 22.2L37 27.8L32 24.2L27 27.8L29 22.2L24.5 18.5H30.2Z"/>
+          </svg></div>
+        <div class="asset-label">Certificação<br>conformidade</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-certificate','SL-icone-certificado',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 21 CÓDIGO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-code" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M26 12L14 32L26 52"/>
+            <path d="M38 12L50 32L38 52"/>
+            <line x1="37" y1="16" x2="27" y2="48"/>
+          </svg></div>
+        <div class="asset-label">Código<br>desenvolvimento</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-code','SL-icone-codigo',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 22 MOBILE -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-mobile" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="16" y="6" width="32" height="52" rx="5"/>
+            <rect x="20" y="12" width="24" height="30" rx="2"/>
+            <circle cx="32" cy="51" r="2.5" fill="#ffffff" stroke="none"/>
+            <rect x="23" y="20" width="18" height="13" rx="2"/>
+            <path d="M25 20V17C25 14.2 28.1 12 32 12C35.9 12 39 14.2 39 17V20"/>
+          </svg></div>
+        <div class="asset-label">Mobile<br>dispositivo</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-mobile','SL-icone-mobile',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 23 EMAIL -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-email" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="14" width="48" height="36" rx="3"/>
+            <polyline points="8,14 32,35 56,14"/>
+            <line x1="8" y1="50" x2="22" y2="34"/>
+            <line x1="56" y1="50" x2="42" y2="34"/>
+          </svg></div>
+        <div class="asset-label">Email<br>phishing</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-email','SL-icone-email',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 24 MFA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-2fa" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="22" width="28" height="28" rx="3"/>
+            <rect x="28" y="14" width="28" height="28" rx="3"/>
+            <polyline points="32,32 38,38 50,26" stroke-width="2.2"/>
+          </svg></div>
+        <div class="asset-label">Autenticação<br>2FA · MFA</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-2fa','SL-icone-2fa',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 25 VPN -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-vpn" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="24" width="16" height="16" rx="3"/>
+            <rect x="42" y="24" width="16" height="16" rx="3"/>
+            <line x1="22" y1="28" x2="42" y2="28"/>
+            <line x1="22" y1="36" x2="42" y2="36"/>
+            <path d="M27 22C27 22 32 14 37 22"/>
+            <circle cx="32" cy="14" r="4"/>
+            <line x1="32" y1="10" x2="32" y2="18"/>
+          </svg></div>
+        <div class="asset-label">VPN<br>privacidade</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-vpn','SL-icone-vpn',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 26 CONTROLE DE ACESSO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-power" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 18C14 22 10 28 10 36C10 48 20 56 32 56C44 56 54 48 54 36C54 28 50 22 44 18"/>
+            <line x1="32" y1="10" x2="32" y2="34"/>
+          </svg></div>
+        <div class="asset-label">Controle<br>de acesso</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-power','SL-icone-acesso',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 27 BUSCA / THREAT INTEL -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-search" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="28" cy="28" r="16"/>
+            <circle cx="28" cy="28" r="8"/>
+            <line x1="40" y1="40" x2="56" y2="56"/>
+          </svg></div>
+        <div class="asset-label">Threat intel<br>busca</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-search','SL-icone-busca',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 28 RELÓGIO / RESPOSTA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-clock" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="32" r="22"/>
+            <line x1="32" y1="14" x2="32" y2="32"/>
+            <line x1="32" y1="32" x2="46" y2="40"/>
+            <circle cx="32" cy="32" r="2.5" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Resposta<br>tempo real</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-clock','SL-icone-relogio',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 29 SATÉLITE / COMUNICAÇÃO -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-satellite" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="32" cy="20" r="14"/>
+            <path d="M22 28L8 52"/>
+            <line x1="6" y1="52" x2="56" y2="52"/>
+            <line x1="32" y1="34" x2="32" y2="52"/>
+            <path d="M24 20C24 15 28 12 32 12C36 12 40 15 40 20"/>
+          </svg></div>
+        <div class="asset-label">Comunicação<br>segura</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-satellite','SL-icone-comunicacao',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 30 USB -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-usb" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="32" y1="8" x2="32" y2="44"/>
+            <circle cx="32" cy="50" r="6"/>
+            <line x1="18" y1="20" x2="32" y2="8"/>
+            <line x1="46" y1="20" x2="32" y2="8"/>
+            <rect x="14" y="20" width="8" height="6" rx="1"/>
+            <line x1="42" y1="20" x2="50" y2="20"/>
+            <line x1="50" y1="14" x2="50" y2="26"/>
+          </svg></div>
+        <div class="asset-label">USB<br>dispositivo externo</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-usb','SL-icone-usb',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 31 ZERO TRUST -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-zerotrust" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 8L52 17V32C52 45 32 57 32 57C32 57 12 45 12 32V17Z"/>
+            <path d="M16 33C20 26 25.5 22 32 22C38.5 22 44 26 48 33C44 40 38.5 44 32 44C25.5 44 20 40 16 33Z"/>
+            <circle cx="32" cy="33" r="5"/>
+            <circle cx="32" cy="33" r="2" fill="#ffffff" stroke="none"/>
+          </svg></div>
+        <div class="asset-label">Zero trust<br>verificação</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-zerotrust','SL-icone-zerotrust',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+      <!-- 32 ANÁLISE BINÁRIA -->
+      <div class="asset-card"><div class="asset-preview">
+          <svg id="ico-binary" viewBox="0 0 64 64" width="64" height="64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="10" y1="16" x2="54" y2="16"/>
+            <line x1="10" y1="24" x2="36" y2="24"/><line x1="42" y1="24" x2="54" y2="24"/>
+            <line x1="10" y1="32" x2="18" y2="32"/><line x1="24" y1="32" x2="48" y2="32"/>
+            <line x1="10" y1="40" x2="30" y2="40"/><line x1="36" y1="40" x2="54" y2="40"/>
+            <line x1="10" y1="48" x2="22" y2="48"/><line x1="28" y1="48" x2="42" y2="48"/><line x1="48" y1="48" x2="54" y2="48"/>
+          </svg></div>
+        <div class="asset-label">Análise<br>dados · binário</div>
+        <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;" onclick="dlSVG('ico-binary','SL-icone-analise',512,512,null)">↓ <span class="dl-g">download</span></button>
+      </div>
+
+    </div><!-- /asset-grid icons -->
+
+    <!-- LINHA GRANDE DE DOWNLOAD -->
+    <button onclick="dlAllIcons(this)"
+      class="fade"
+      style="width:100%;margin-top:1px;background:linear-gradient(100deg,#0d0900 0%,#1a1100 40%,rgba(201,168,76,0.18) 100%);border:none;border-top:1px solid rgba(201,168,76,0.25);cursor:pointer;
+             display:flex;align-items:center;justify-content:space-between;
+             padding:2rem 1.6rem;transition:background .25s;position:relative;overflow:hidden;">
+      <span style="display:flex;flex-direction:column;gap:.55rem;text-align:left;">
+        <span style="font-family:'Kode Mono',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);">↓ Download</span>
+        <span style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.6rem;color:#fff;line-height:1;">ZIP · Todos os ícones</span>
+        <span style="font-family:'Roboto',sans-serif;font-size:.72rem;color:rgba(255,255,255,.35);">Exporta todos os ícones visíveis no modo de cor selecionado · PNG 512 × 512</span>
+      </span>
+      <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="var(--amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-left:2rem;">
+        <line x1="16" y1="4" x2="16" y2="22"/>
+        <polyline points="8,15 16,23 24,15"/>
+        <line x1="4" y1="28" x2="28" y2="28"/>
+      </svg>
+    </button>
+
+  </div><!-- /max-w -->
+
+</div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════ 06 — TIPOGRAFIA ═══════ -->
+<section id="tipografia">
+<div class="max-w">
+  <div class="sec-label fade">06 — Tipografia</div>
+  <div class="sec-title fade" style="transition-delay:.08s">Sistema<br><em>tipográfico.</em></div>
+  <p class="sec-body fade" style="transition-delay:.16s">
+    Três fontes com funções distintas — display, técnica e corpo. Nunca intercambiáveis entre si.
+    Clique em <strong>↓ Google Fonts</strong> para baixar cada fonte.
+  </p>
+
+  <!-- ══ 01 · BIG SHOULDERS DISPLAY ══ -->
+  <div class="type-spec-block fade" style="transition-delay:.2s">
+    <div class="type-spec-header">
+      <div>
+        <div class="type-spec-meta-role">01 · Display · Títulos · Nomes de cidade · Peças gráficas</div>
+        <div class="type-spec-meta-name">Big Shoulders Display</div>
+      </div>
+      <a href="https://fonts.google.com/?query=Big+Shoulders+Display" target="_blank" rel="noopener"
+         class="type-gf-link" aria-label="Baixar Big Shoulders Display no Google Fonts">
+        ↓ Google Fonts ↗
+      </a>
+    </div>
+
+    <div class="type-big-sample" style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;">
+      Aa Bb Cc Dd
+    </div>
+
+    <div class="type-charset" style="font-family:'Big Shoulders Display',sans-serif;font-weight:400;">
+      A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+      a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+      0 1 2 3 4 5 6 7 8 9 &nbsp;&nbsp; ! ? @ # &amp; $ . , ;
+    </div>
+
+    <div class="type-weights type-w3">
+      <div class="type-w-cell">
+        <div class="type-w-label">900 · Black</div>
+        <div class="type-w-sample" style="font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:1.6rem;color:rgba(255,255,255,.85);letter-spacing:-.01em;">SECURITY LEADERS</div>
+      </div>
+      <div class="type-w-cell">
+        <div class="type-w-label">700 · Bold</div>
+        <div class="type-w-sample" style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.6rem;letter-spacing:-.01em;">Security Leaders 2026</div>
+      </div>
+      <div class="type-w-cell">
+        <div class="type-w-label">400 · Regular</div>
+        <div class="type-w-sample" style="font-family:'Big Shoulders Display',sans-serif;font-weight:400;font-size:1.6rem;">Edição Nacional</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 02 · KODE MONO ══ -->
+  <div class="type-spec-block fade" style="transition-delay:.1s">
+    <div class="type-spec-header">
+      <div>
+        <div class="type-spec-meta-role">02 · Monospace · Labels · Dados · Frases de destaque curtas</div>
+        <div class="type-spec-meta-name">Kode Mono</div>
+      </div>
+      <a href="https://fonts.google.com/specimen/Kode+Mono" target="_blank" rel="noopener"
+         class="type-gf-link" aria-label="Baixar Kode Mono no Google Fonts">
+        ↓ Google Fonts ↗
+      </a>
+    </div>
+
+    <div class="type-big-sample" style="font-family:'Kode Mono',monospace;font-weight:700;letter-spacing:-.01em;">
+      // 01 Aa Bb
+    </div>
+
+    <div class="type-charset" style="font-family:'Kode Mono',monospace;font-weight:400;">
+      A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+      0 1 2 3 4 5 6 7 8 9 &nbsp;&nbsp; // · @ # &amp; ! ? . , ; : _
+    </div>
+
+    <div class="type-weights type-w3">
+      <div class="type-w-cell">
+        <div class="type-w-label">700 · Bold</div>
+        <div class="type-w-sample" style="font-family:'Kode Mono',monospace;font-weight:700;font-size:1rem;color:rgba(255,255,255,.85);">PATROCINADOR MASTER</div>
+      </div>
+      <div class="type-w-cell">
+        <div class="type-w-label">500 · Medium</div>
+        <div class="type-w-sample" style="font-family:'Kode Mono',monospace;font-weight:500;font-size:1rem;">// Edição Nacional 2026</div>
+      </div>
+      <div class="type-w-cell">
+        <div class="type-w-label">400 · Regular</div>
+        <div class="type-w-sample" style="font-family:'Kode Mono',monospace;font-weight:400;font-size:1rem;">0 1 0 0 1 1 0 1 · label</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 03 · ROBOTO ══ -->
+  <div class="type-spec-block fade" style="transition-delay:.1s">
+    <div class="type-spec-header">
+      <div>
+        <div class="type-spec-meta-role">03 · Corpo · Texto corrido · Descrições · Material impresso</div>
+        <div class="type-spec-meta-name">Roboto</div>
+      </div>
+      <a href="https://fonts.google.com/specimen/Roboto" target="_blank" rel="noopener"
+         class="type-gf-link" aria-label="Baixar Roboto no Google Fonts">
+        ↓ Google Fonts ↗
+      </a>
+    </div>
+
+    <div class="type-big-sample" style="font-family:'Roboto',sans-serif;font-weight:300;letter-spacing:0;">
+      Aa Bb Cc Dd
+    </div>
+
+    <div class="type-charset" style="font-family:'Roboto',sans-serif;font-weight:400;">
+      A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+      a b c d e f g h i j k l m n o p q r s t u v w x y z<br>
+      0 1 2 3 4 5 6 7 8 9 &nbsp;&nbsp; ! ? @ # &amp; $ . , ; : —
+    </div>
+
+    <div class="type-weights type-w3">
+      <div class="type-w-cell">
+        <div class="type-w-label">500 · Medium</div>
+        <div class="type-w-sample" style="font-family:'Roboto',sans-serif;font-weight:500;font-size:1rem;color:rgba(255,255,255,.85);">Texto em destaque médio</div>
+      </div>
+      <div class="type-w-cell">
+        <div class="type-w-label">400 · Regular</div>
+        <div class="type-w-sample" style="font-family:'Roboto',sans-serif;font-weight:400;font-size:1rem;">Texto corrido e descrições</div>
+      </div>
+      <div class="type-w-cell">
+        <div class="type-w-label">300 · Light</div>
+        <div class="type-w-sample" style="font-family:'Roboto',sans-serif;font-weight:300;font-size:1rem;">Textos de apoio e rodapé</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIERARQUIA -->
+  <div style="margin-top:5rem;">
+    <div class="sub-label fade">Hierarquia · como as fontes se combinam</div>
+    <div class="hier">
+      <div class="hier-row fade"><div class="hier-tag">H1 · Display</div><div class="hier-demo"><span class="demo-h1">Security Leaders</span></div><div class="hier-spec">Big Shoulders 900 · all caps · ls −0.02em</div></div>
+      <div class="hier-row fade"><div class="hier-tag">H2 · Seção</div><div class="hier-demo"><span class="demo-h2">Logo Principal</span></div><div class="hier-spec">Big Shoulders 700 · all caps</div></div>
+      <div class="hier-row fade"><div class="hier-tag">Label / Tag</div><div class="hier-demo"><span class="demo-label">Patrocinador Oficial</span></div><div class="hier-spec">Kode Mono 400 · all caps · ls 0.2em</div></div>
+      <div class="hier-row fade"><div class="hier-tag">Frase destaque</div><div class="hier-demo"><span class="demo-destaque">"Proteja o que importa."</span></div><div class="hier-spec">Kode Mono · curta e pontual</div></div>
+      <div class="hier-row fade"><div class="hier-tag">Body / Corpo</div><div class="hier-demo"><span class="demo-body">Texto corrido de apoio, descrições e parágrafos longos.</span></div><div class="hier-spec">Roboto 300–400</div></div>
+      <div class="hier-row fade"><div class="hier-tag">Decorativo</div><div class="hier-demo"><span class="demo-tech">0 1 0 0 1 1 0 1 0 0 1</span></div><div class="hier-spec">Kode Mono · textura de fundo</div></div>
+    </div>
+  </div>
+
+  <!-- SUBSTITUIÇÕES -->
+  <div style="margin-top:4rem;">
+    <div class="sub-label fade">Substituições por plataforma</div>
+    <div class="subst-grid">
+
+      <div class="subst-cell fade">
+        <div class="subst-plat">No Canva</div>
+        <div class="subst-arrow">↓ usar</div>
+        <div class="subst-sample">
+          <div class="subst-sample-name" style="font-family:'Anton',sans-serif;">Anton</div>
+          <div class="subst-sample-sub">ou Oswald</div>
+        </div>
+        <div class="subst-plat" style="color:var(--cinza-txt);margin-top:.2rem;">Peso visual próximo ao Big Shoulders</div>
+      </div>
+
+      <div class="subst-cell fade" style="transition-delay:.06s">
+        <div class="subst-plat">No RD Station</div>
+        <div class="subst-arrow">↓ usar</div>
+        <div class="subst-sample">
+          <div class="subst-sample-name" style="font-family:'Oswald',sans-serif;font-weight:500;">Oswald</div>
+          <div class="subst-sample-sub">peso 500 · all caps</div>
+        </div>
+        <div class="subst-plat" style="color:var(--cinza-txt);margin-top:.2rem;">Disponível na plataforma</div>
+      </div>
+
+      <div class="subst-cell fade" style="transition-delay:.12s">
+        <div class="subst-plat">Aldrish indisponível</div>
+        <div class="subst-arrow">↓ usar</div>
+        <div class="subst-sample">
+          <div class="subst-sample-name" style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;">Big Shoulders</div>
+          <div class="subst-sample-sub">700 · all caps</div>
+        </div>
+        <div class="subst-plat" style="color:var(--cinza-txt);margin-top:.2rem;">Mantém DNA visual da marca</div>
+      </div>
+
+      <div class="subst-cell no fade" style="transition-delay:.18s">
+        <div class="subst-plat" style="color:#e06464;">Nunca usar</div>
+        <div class="subst-arrow">✕</div>
+        <div class="subst-sample">
+          <div class="subst-sample-name">Arial / Helvetica</div>
+          <div class="subst-sample-sub" style="color:#e06464;">descaracteriza a marca</div>
+        </div>
+        <div class="subst-plat" style="color:rgba(224,100,100,.7);margin-top:.2rem;">Genérica · sem personalidade</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- placeholder de âncora p/ nav — melhorias (seção pendente) -->
+<span id="melhorias" style="scroll-margin-top:56px;display:block;"></span>
+
+<hr class="divider">
+
+<!-- ═══════ 07 — REGIONAIS ═══════ -->
+<section id="regionais" style="scroll-margin-top:56px;">
+
+  <!-- INTRO: vídeo fullwidth -->
+  <div class="regional-hero">
+    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="https://securityleaders.com.br/wp-content/uploads/2026/06/Tela-de-descanso-Florianopolis-2.mp4" type="video/mp4">
+    </video>
+    <div class="regional-overlay">
+      <div class="max-w">
+        <div class="sec-label fade">07 — Regionais</div>
+        <div class="regional-hero-title fade" style="transition-delay:.06s">9 cidades.<br><em>Uma marca.</em></div>
+        <p class="regional-hero-sub fade" style="transition-delay:.12s">Sistema de logos adaptado para cada edição. Mesma linguagem visual, cidade em destaque — assets em PNG, versões preta e branca.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NACIONAL ── -->
+  <div class="max-w">
+
+    <div class="cidade-header fade">
+      <div>
+        <div class="cidade-uf" style="color:var(--verde-txt);">Edição Nacional</div>
+        <div class="cidade-nome" style="color:var(--verde-txt);">Nacional</div>
+      </div>
+      <div class="cidade-num" style="color:var(--verde-txt);font-size:.8rem;letter-spacing:.12em;">Nacional</div>
+    </div>
+
+    <!-- Imagens da edição -->
+    <div class="cidade-img-block fade" style="transition-delay:.06s">
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/5e3e4cf1-d793-413d-8753-ed9962ecb6be.png"
+             alt="Imagem do Security Leaders Nacional — referência visual 01" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 01 · Nacional</div>
+            <div class="dl-label">Referência visual · peças e materiais</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/5e3e4cf1-d793-413d-8753-ed9962ecb6be.png','SL-Nacional-imagem-01')"
+            aria-label="Download da imagem 01 do Nacional">↓ download</button>
+        </div>
+      </div>
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/ba1f6ae5-9e2b-4caa-8a35-6fc7982a2fd1.png"
+             alt="Imagem do Security Leaders Nacional — referência visual 02" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 02 · Nacional</div>
+            <div class="dl-label">Referência visual para peças e materiais</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/ba1f6ae5-9e2b-4caa-8a35-6fc7982a2fd1.png','SL-Nacional-imagem-02')"
+            aria-label="Download da imagem 02 do Nacional">↓ download</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Preview das versões -->
+    <div class="logo-preview-grid fade" style="transition-delay:.08s;border:1px solid var(--verde-dim);">
+
+      <div class="logo-preview-dark" style="border-bottom:2px solid var(--verde);">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20nacional%20p.jpeg"
+             alt="Logo Security Leaders Nacional — versão branca"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label" style="color:var(--verde-txt);">Versão Branca · fundo escuro</div>
+      </div>
+
+      <div class="logo-preview-light" style="border-bottom:2px solid var(--verde);">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20nacional%20branco.jpeg"
+             alt="Logo Security Leaders Nacional — versão preta"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label" style="color:#2a7a55;">Versão Preta · fundo claro</div>
+      </div>
+
+    </div>
+
+    <!-- Downloads Nacional -->
+    <div class="regional-dl-row fade" style="transition-delay:.12s">
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">JPEG Branco</div>
+          <div class="dl-label">Nacional · fundos escuros e fotográficos</div>
+        </div>
+        <button class="dl-btn" style="border-color:var(--verde);color:var(--verde-txt);"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20nacional%20p.jpeg','SL-Nacional-branco')"
+          aria-label="Download do logo Nacional versão branca">
+          ↓ download · JPEG Branco
+        </button>
+      </div>
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">JPEG Preto</div>
+          <div class="dl-label">Nacional · fundos claros e impressos</div>
+        </div>
+        <button class="dl-btn" style="border-color:var(--verde);color:var(--verde-txt);"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20nacional%20branco.jpeg','SL-Nacional-preto')"
+          aria-label="Download do logo Nacional versão preta">
+          ↓ download · JPEG Preto
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Trilhas Nacional -->
+    <div class="fade" style="transition-delay:.14s;margin-top:3rem;">
+      <div class="sub-label" style="color:var(--verde-txt);margin-bottom:1.5rem;">// Trilhas · Verticais</div>
+      <p style="font-family:'Roboto',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:1.8rem;max-width:520px;line-height:1.7;">Tags identificadoras das verticais de mercado do Security Leaders Nacional. PNG com fundo transparente.</p>
+
+      <div style="border:1px solid var(--verde-dim);">
+
+        <!-- Linha 1 — 3 trilhas -->
+        <div class="trilhas-g1">
+
+          <div class="asset-card">
+            <div class="asset-preview" style="min-height:120px;">
+              <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/trilha%20edu.png"
+                   alt="Trilha Educação" style="max-width:220px;width:100%;height:auto;display:block;"
+                   onerror="this.style.opacity='.15'">
+            </div>
+            <div class="asset-label" style="color:var(--verde-txt);">Educação</div>
+            <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;border-color:var(--verde);color:var(--verde-txt);"
+              onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/trilha%20edu.png','SL-Nacional-trilha-educacao')">↓ download</button>
+          </div>
+
+          <div class="asset-card">
+            <div class="asset-preview" style="min-height:120px;">
+              <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/Trilha%20igoverno.png"
+                   alt="Trilha iGoverno" style="max-width:220px;width:100%;height:auto;display:block;"
+                   onerror="this.style.opacity='.15'">
+            </div>
+            <div class="asset-label" style="color:var(--verde-txt);">Governo</div>
+            <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;border-color:var(--verde);color:var(--verde-txt);"
+              onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/Trilha%20igoverno.png','SL-Nacional-trilha-igoverno')">↓ download</button>
+          </div>
+
+          <div class="asset-card">
+            <div class="asset-preview" style="min-height:120px;">
+              <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/Trilha%20ind%C3%BAstria.png"
+                   alt="Trilha Indústria" style="max-width:220px;width:100%;height:auto;display:block;"
+                   onerror="this.style.opacity='.15'">
+            </div>
+            <div class="asset-label" style="color:var(--verde-txt);">Indústria</div>
+            <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;border-color:var(--verde);color:var(--verde-txt);"
+              onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/Trilha%20ind%C3%BAstria.png','SL-Nacional-trilha-industria')">↓ download</button>
+          </div>
+
+        </div>
+
+        <!-- Linha 2 — 2 trilhas centralizadas -->
+        <div class="trilhas-g2">
+
+          <div class="asset-card trilhas-g2-card">
+            <div class="asset-preview" style="min-height:120px;">
+              <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/trilha%20saude.png"
+                   alt="Trilha Saúde" style="max-width:220px;width:100%;height:auto;display:block;"
+                   onerror="this.style.opacity='.15'">
+            </div>
+            <div class="asset-label" style="color:var(--verde-txt);">Saúde</div>
+            <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;border-color:var(--verde);color:var(--verde-txt);"
+              onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/trilha%20saude.png','SL-Nacional-trilha-saude')">↓ download</button>
+          </div>
+
+          <div class="asset-card trilhas-g2-card">
+            <div class="asset-preview" style="min-height:120px;">
+              <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/Trilha%20varejo.png"
+                   alt="Trilha Varejo" style="max-width:220px;width:100%;height:auto;display:block;"
+                   onerror="this.style.opacity='.15'">
+            </div>
+            <div class="asset-label" style="color:var(--verde-txt);">Varejo</div>
+            <button class="dl-btn" style="font-size:.5rem;padding:7px 10px;border-color:var(--verde);color:var(--verde-txt);"
+              onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/Trilha%20varejo.png','SL-Nacional-trilha-varejo')">↓ download</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" style="margin:4rem 0;">
+
+  <!-- ── RECIFE ── -->
+  <div class="max-w">
+
+    <div class="cidade-header fade">
+      <div>
+        <div class="cidade-uf">PE · Pernambuco</div>
+        <div class="cidade-nome">Recife</div>
+      </div>
+      <div class="cidade-num">01 / 09</div>
+    </div>
+
+    <!-- Imagens da cidade -->
+    <div class="cidade-img-block fade" style="transition-delay:.06s">
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/9e4a4a1a-6215-4926-9db4-fdabcbcb9ff5.png"
+             alt="Imagem de Recife — vista noturna" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 01 · Recife</div>
+            <div class="dl-label">Vista noturna · referência visual</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/9e4a4a1a-6215-4926-9db4-fdabcbcb9ff5.png','SL-Recife-imagem-01')"
+            aria-label="Download da imagem 01 de Recife">↓ download</button>
+        </div>
+      </div>
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/ChatGPT%20Image%2018%20de%20mai.%20de%202026%2C%2014_36_53.png"
+             alt="Imagem de Recife — referência 02" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 02 · Recife</div>
+            <div class="dl-label">Referência visual para peças e materiais</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/ChatGPT%20Image%2018%20de%20mai.%20de%202026%2C%2014_36_53.png','SL-Recife-imagem-02')"
+            aria-label="Download da imagem 02 de Recife">↓ download</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Preview das versões -->
+    <div class="logo-preview-grid fade" style="transition-delay:.08s">
+
+      <div class="logo-preview-dark">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20regional%20Recife%20white.png"
+             alt="Logo Security Leaders Recife — versão branca"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label">Versão Branca · fundo escuro</div>
+      </div>
+
+      <div class="logo-preview-light">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20regional%20Recife%20Black.png"
+             alt="Logo Security Leaders Recife — versão preta"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label">Versão Preta · fundo claro</div>
+      </div>
+
+    </div>
+
+    <!-- Downloads Recife -->
+    <div class="regional-dl-row fade" style="transition-delay:.12s">
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">PNG Branco</div>
+          <div class="dl-label">Recife · fundos escuros e fotográficos</div>
+        </div>
+        <button class="dl-btn"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20regional%20Recife%20white.png','SL-Recife-branco')"
+          aria-label="Download do logo de Recife versão branca">
+          ↓ download · PNG Branco
+        </button>
+      </div>
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">PNG Preto</div>
+          <div class="dl-label">Recife · fundos claros e impressos</div>
+        </div>
+        <button class="dl-btn"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20regional%20Recife%20Black.png','SL-Recife-preto')"
+          aria-label="Download do logo de Recife versão preta">
+          ↓ download · PNG Preto
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ── SALVADOR ── -->
+    <hr class="divider" style="margin:4rem 0;">
+
+    <div class="cidade-header fade">
+      <div>
+        <div class="cidade-uf">BA · Bahia</div>
+        <div class="cidade-nome">Salvador</div>
+      </div>
+      <div class="cidade-num">02 / 09</div>
+    </div>
+
+    <!-- Imagens da cidade -->
+    <div class="cidade-img-block fade" style="transition-delay:.06s">
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/3359b7f6-e3f2-4bd7-989e-498649cb57f5.png"
+             alt="Imagem de Salvador — referência visual 01" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 01 · Salvador</div>
+            <div class="dl-label">Referência visual · peças e materiais</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/3359b7f6-e3f2-4bd7-989e-498649cb57f5.png','SL-Salvador-imagem-01')"
+            aria-label="Download da imagem 01 de Salvador">↓ download</button>
+        </div>
+      </div>
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/b4f66bf9-62ee-4849-b086-100306d291a1.png"
+             alt="Imagem de Salvador — referência visual 02" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 02 · Salvador</div>
+            <div class="dl-label">Referência visual para peças e materiais</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/b4f66bf9-62ee-4849-b086-100306d291a1.png','SL-Salvador-imagem-02')"
+            aria-label="Download da imagem 02 de Salvador">↓ download</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Preview das versões -->
+    <div class="logo-preview-grid fade" style="transition-delay:.08s">
+
+      <div class="logo-preview-dark">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20salvadopr%20branco.png"
+             alt="Logo Security Leaders Salvador — versão branca"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label">Versão Branca · fundo escuro</div>
+      </div>
+
+      <div class="logo-preview-light">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20salvador%20black.png"
+             alt="Logo Security Leaders Salvador — versão preta"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label">Versão Preta · fundo claro</div>
+      </div>
+
+    </div>
+
+    <!-- Downloads Salvador -->
+    <div class="regional-dl-row fade" style="transition-delay:.12s">
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">PNG Branco</div>
+          <div class="dl-label">Salvador · fundos escuros e fotográficos</div>
+        </div>
+        <button class="dl-btn"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20salvadopr%20branco.png','SL-Salvador-branco')"
+          aria-label="Download do logo de Salvador versão branca">
+          ↓ download · PNG Branco
+        </button>
+      </div>
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">PNG Preto</div>
+          <div class="dl-label">Salvador · fundos claros e impressos</div>
+        </div>
+        <button class="dl-btn"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20salvador%20black.png','SL-Salvador-preto')"
+          aria-label="Download do logo de Salvador versão preta">
+          ↓ download · PNG Preto
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ── FORTALEZA ── -->
+    <hr class="divider" style="margin:4rem 0;">
+
+    <div class="cidade-header fade">
+      <div>
+        <div class="cidade-uf">CE · Ceará</div>
+        <div class="cidade-nome">Fortaleza</div>
+      </div>
+      <div class="cidade-num">03 / 09</div>
+    </div>
+
+    <!-- Imagens da cidade -->
+    <div class="cidade-img-block fade" style="transition-delay:.06s">
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/92913c54-85a0-4953-abd5-fc85ec851451.png"
+             alt="Imagem de Fortaleza — referência visual 01" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 01 · Fortaleza</div>
+            <div class="dl-label">Referência visual · peças e materiais</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/92913c54-85a0-4953-abd5-fc85ec851451.png','SL-Fortaleza-imagem-01')"
+            aria-label="Download da imagem 01 de Fortaleza">↓ download</button>
+        </div>
+      </div>
+
+      <div class="cidade-img-item">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/b6f14994-b27c-435e-a670-291179739c46.png"
+             alt="Imagem de Fortaleza — referência visual 02" class="cidade-thumb"
+             onerror="this.closest('.cidade-img-item').style.display='none'">
+        <div class="cidade-img-footer">
+          <div>
+            <div class="dl-size" style="margin-bottom:.2rem;">Imagem 02 · Fortaleza</div>
+            <div class="dl-label">Referência visual para peças e materiais</div>
+          </div>
+          <button class="dl-btn" style="width:auto;padding:9px 20px;white-space:nowrap;"
+            onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/b6f14994-b27c-435e-a670-291179739c46.png','SL-Fortaleza-imagem-02')"
+            aria-label="Download da imagem 02 de Fortaleza">↓ download</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Preview das versões -->
+    <div class="logo-preview-grid fade" style="transition-delay:.08s">
+
+      <div class="logo-preview-dark">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20fortaleza%20black.png"
+             alt="Logo Security Leaders Fortaleza — versão branca"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label">Versão Branca · fundo escuro</div>
+      </div>
+
+      <div class="logo-preview-light">
+        <img src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20fortaleza%20branco.png"
+             alt="Logo Security Leaders Fortaleza — versão preta"
+             onerror="this.style.opacity='.15'">
+        <div class="logo-preview-label">Versão Preta · fundo claro</div>
+      </div>
+
+    </div>
+
+    <!-- Downloads Fortaleza -->
+    <div class="regional-dl-row fade" style="transition-delay:.12s">
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">PNG Branco</div>
+          <div class="dl-label">Fortaleza · fundos escuros e fotográficos</div>
+        </div>
+        <button class="dl-btn"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20fortaleza%20black.png','SL-Fortaleza-branco')"
+          aria-label="Download do logo de Fortaleza versão branca">
+          ↓ download · PNG Branco
+        </button>
+      </div>
+
+      <div class="dl-card">
+        <div class="dl-preview" style="min-height:40px;"></div>
+        <div class="dl-meta">
+          <div class="dl-size">PNG Preto</div>
+          <div class="dl-label">Fortaleza · fundos claros e impressos</div>
+        </div>
+        <button class="dl-btn"
+          onclick="downloadAsset('https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/logo%20fortaleza%20branco.png','SL-Fortaleza-preto')"
+          aria-label="Download do logo de Fortaleza versão preta">
+          ↓ download · PNG Preto
+        </button>
+      </div>
+
+    </div>
+
+    <div class="note warn fade" style="margin-top:1.5rem;transition-delay:.16s">
+      <div class="ico" aria-hidden="true">!</div>
+      <p>Demais cidades sendo adicionadas conforme assets disponíveis: <strong>Brasília, Rio de Janeiro, Belo Horizonte, Porto Alegre, Curitiba e Florianópolis.</strong></p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider fade">
+
+<!-- ═══════ 09 — REFERÊNCIAS ═══════ -->
+<section id="referencias" style="scroll-margin-top:56px;">
+<div class="max-w">
+
+  <div class="sec-label fade">09 — Referências</div>
+  <div class="sec-title fade" style="transition-delay:.08s">Vídeos<br>e <em>fotos.</em></div>
+  <p class="sec-body fade" style="transition-delay:.16s">
+    Acervo audiovisual oficial do Security Leaders — playlist dos eventos e galeria fotográfica.
+  </p>
+
+  <div class="fade ref-links-grid" style="transition-delay:.22s;gap:2px;background:var(--borda-fraca);margin:2.8rem 0 0;">
+
+    <!-- YOUTUBE -->
+    <a href="https://www.youtube.com/watch?v=grqX5vxW6SA&list=PLeZQyPooaZrqGm4IVMbVZJWiflMvEnEwJ&index=2"
+       target="_blank" rel="noopener"
+       style="display:flex;flex-direction:column;text-decoration:none;background:var(--surface);">
+      <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#6b0000 0%,#c8000a 55%,#ff2020 100%);display:flex;align-items:center;justify-content:center;">
+        <div style="width:80px;height:56px;background:#FF0000;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 36px rgba(255,0,0,.55);">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="white"><polygon points="9,6 20,12 9,18"/></svg>
+        </div>
+      </div>
+      <div style="padding:1.2rem 1.4rem 1.6rem;flex:1;">
+        <div style="font-family:'Kode Mono',monospace;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:.55rem;">YouTube</div>
+        <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.5rem;color:var(--branco);line-height:1.1;">Vídeos SL</div>
+        <div style="font-family:'Roboto',sans-serif;font-size:.73rem;color:rgba(255,255,255,.38);margin-top:.7rem;display:flex;align-items:center;gap:.4rem;">
+          <span>Ver playlist</span>
+          <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="2" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- FLICKR -->
+    <a href="https://www.flickr.com/photos/56580199@N04/albums/"
+       target="_blank" rel="noopener"
+       style="display:flex;flex-direction:column;text-decoration:none;background:var(--surface);">
+      <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#3d0022 0%,#a8005a 45%,#0040a0 100%);display:flex;align-items:center;justify-content:center;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:52px;height:52px;border-radius:50%;background:#FF0084;box-shadow:0 8px 32px rgba(255,0,132,.6);"></div>
+          <div style="width:52px;height:52px;border-radius:50%;background:#0063DC;box-shadow:0 8px 32px rgba(0,99,220,.6);"></div>
+        </div>
+      </div>
+      <div style="padding:1.2rem 1.4rem 1.6rem;flex:1;">
+        <div style="font-family:'Kode Mono',monospace;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:.55rem;">Flickr</div>
+        <div style="font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.5rem;color:var(--branco);line-height:1.1;">Fotos SL</div>
+        <div style="font-family:'Roboto',sans-serif;font-size:.73rem;color:rgba(255,255,255,.38);margin-top:.7rem;display:flex;align-items:center;gap:.4rem;">
+          <span>Ver álbuns</span>
+          <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="2" y1="8" x2="13" y2="8"/><polyline points="9,4 13,8 9,12"/></svg>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- VINHETAS -->
+  <div class="sub-label fade" style="margin-top:3rem;">Vinhetas · Encerramento</div>
+
+  <div class="fade ref-vinhetas-grid" style="transition-delay:.1s;">
+
+    <!-- SL HORIZONTAL -->
+    <div style="background:var(--surface);padding:1.4rem;display:flex;flex-direction:column;gap:.9rem;">
+      <div style="position:relative;">
+        <video id="vid-sl-h" src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/SL%20H.mp4"
+               controls preload="metadata" muted playsinline
+               style="width:100%;display:block;background:#000;aspect-ratio:16/9;max-height:220px;"
+               onloadedmetadata="document.getElementById('ph-sl-h').style.display='none'"></video>
+        <div id="ph-sl-h" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;background:var(--cinza-escuro);pointer-events:none;">
+          <svg viewBox="0 0 48 48" width="36" height="36" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round"><path d="M24 8v24"/><polyline points="14,22 24,32 34,22"/><line x1="8" y1="40" x2="40" y2="40"/></svg>
+          <span style="font-family:'Kode Mono',monospace;font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-txt);text-align:center;">Aguardando upload<br><span style="color:var(--amber);">GitHub</span></span>
+        </div>
+      </div>
+      <div style="font-family:'Kode Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Security Leaders · <span style="color:var(--amber);">Horizontal</span></div>
+      <a href="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/SL%20H.mp4" target="_blank"
+         style="display:block;font-family:'Kode Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--borda);padding:.65rem 1rem;text-decoration:none;text-align:center;background:var(--preto);">
+        ↓ download · .mp4
+      </a>
+    </div>
+
+    <!-- SL VERTICAL -->
+    <div style="background:var(--surface);padding:1.4rem;display:flex;flex-direction:column;gap:.9rem;">
+      <div style="position:relative;">
+        <video id="vid-sl-v" src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/SL.mp4"
+               controls preload="metadata" muted playsinline
+               style="width:100%;display:block;background:#000;aspect-ratio:16/9;max-height:220px;"
+               onloadedmetadata="document.getElementById('ph-sl-v').style.display='none'"></video>
+        <div id="ph-sl-v" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;background:var(--cinza-escuro);pointer-events:none;">
+          <svg viewBox="0 0 48 48" width="36" height="36" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round"><path d="M24 8v24"/><polyline points="14,22 24,32 34,22"/><line x1="8" y1="40" x2="40" y2="40"/></svg>
+          <span style="font-family:'Kode Mono',monospace;font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-txt);text-align:center;">Aguardando upload<br><span style="color:var(--amber);">GitHub</span></span>
+        </div>
+      </div>
+      <div style="font-family:'Kode Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Security Leaders · <span style="color:var(--amber);">Vertical</span></div>
+      <a href="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/SL.mp4" target="_blank"
+         style="display:block;font-family:'Kode Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--borda);padding:.65rem 1rem;text-decoration:none;text-align:center;background:var(--preto);">
+        ↓ download · .mp4
+      </a>
+    </div>
+
+    <!-- NTSEC HORIZONTAL -->
+    <div style="background:var(--surface);padding:1.4rem;display:flex;flex-direction:column;gap:.9rem;">
+      <div style="position:relative;">
+        <video id="vid-nt-h" src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/check%20point%20ntsec%20Horizontal.mp4"
+               controls preload="metadata" muted playsinline
+               style="width:100%;display:block;background:#000;aspect-ratio:16/9;max-height:220px;"
+               onloadedmetadata="document.getElementById('ph-nt-h').style.display='none'"></video>
+        <div id="ph-nt-h" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;background:var(--cinza-escuro);pointer-events:none;">
+          <svg viewBox="0 0 48 48" width="36" height="36" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round"><path d="M24 8v24"/><polyline points="14,22 24,32 34,22"/><line x1="8" y1="40" x2="40" y2="40"/></svg>
+          <span style="font-family:'Kode Mono',monospace;font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-txt);text-align:center;">Aguardando upload<br><span style="color:var(--amber);">GitHub</span></span>
+        </div>
+      </div>
+      <div style="font-family:'Kode Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Logo Parceiro · <span style="color:var(--amber);">Horizontal</span></div>
+      <a href="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/check%20point%20ntsec%20Horizontal.mp4" target="_blank"
+         style="display:block;font-family:'Kode Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--borda);padding:.65rem 1rem;text-decoration:none;text-align:center;background:var(--preto);">
+        ↓ download · .mp4
+      </a>
+    </div>
+
+    <!-- NTSEC VERTICAL -->
+    <div style="background:var(--surface);padding:1.4rem;display:flex;flex-direction:column;gap:.9rem;">
+      <div style="position:relative;">
+        <video id="vid-nt-v" src="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/check%20point%20ntsec.mp4"
+               controls preload="metadata" muted playsinline
+               style="width:100%;display:block;background:#000;aspect-ratio:16/9;max-height:220px;"
+               onloadedmetadata="document.getElementById('ph-nt-v').style.display='none'"></video>
+        <div id="ph-nt-v" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;background:var(--cinza-escuro);pointer-events:none;">
+          <svg viewBox="0 0 48 48" width="36" height="36" fill="none" stroke="var(--amber)" stroke-width="1.6" stroke-linecap="round"><path d="M24 8v24"/><polyline points="14,22 24,32 34,22"/><line x1="8" y1="40" x2="40" y2="40"/></svg>
+          <span style="font-family:'Kode Mono',monospace;font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza-txt);text-align:center;">Aguardando upload<br><span style="color:var(--amber);">GitHub</span></span>
+        </div>
+      </div>
+      <div style="font-family:'Kode Mono',monospace;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza-txt);">Logo Parceiro · <span style="color:var(--amber);">Vertical</span></div>
+      <a href="https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/check%20point%20ntsec.mp4" target="_blank"
+         style="display:block;font-family:'Kode Mono',monospace;font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid var(--borda);padding:.65rem 1rem;text-decoration:none;text-align:center;background:var(--preto);">
+        ↓ download · .mp4
+      </a>
+    </div>
+
+  </div>
+
+  <p style="font-family:'Kode Mono',monospace;font-size:.44rem;letter-spacing:.16em;color:rgba(255,255,255,.22);text-align:center;margin:1rem 0 3rem;" class="fade">
+    Links abrem em nova aba · clique para acessar o acervo completo
+  </p>
+
+</div>
+</section>
+
+
+
+</main>
+
+<footer>
+  <div class="ft-logo">SECURITY <b>LEADERS</b></div>
+  <div class="ft-info">Brand Guide · Confidencial · 2026</div>
+  <div class="ft-info" style="color:var(--verde-txt);">Para aprovação</div>
+</footer>
+
+<script>
+const dot  = document.getElementById('dot');
+const ring = document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  dot.style.left=mx+'px'; dot.style.top=my+'px';
+});
+(function loop(){
+  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,.index-cell,.an-row,.tcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ ring.style.width='42px'; ring.style.height='42px'; ring.style.borderColor='rgba(201,168,76,.7)'; });
+  el.addEventListener('mouseleave',()=>{ ring.style.width='28px'; ring.style.height='28px'; ring.style.borderColor='rgba(201,168,76,.4)'; });
+});
+
+// REGIONAIS — download de asset genérico (original resolution)
+function downloadAsset(url, filename) {
+  var btn = event.currentTarget;
+  btn.textContent = '⌛ gerando…';
+  btn.disabled = true;
+  btn.classList.remove('ok','error');
+  var img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = function() {
+    try {
+      var c = document.createElement('canvas');
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      c.getContext('2d').drawImage(img, 0, 0);
+      c.toBlob(function(blob) {
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename + '.png';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+        btn.textContent = '✓ baixando…';
+        btn.classList.add('ok');
+        setTimeout(function(){ btn.disabled=false; btn.textContent='↓ download · PNG'; btn.classList.remove('ok'); }, 2500);
+      }, 'image/png');
+    } catch(e) {
+      btn.textContent = '✕ erro — tentando abrir';
+      btn.classList.add('error');
+      btn.disabled = false;
+      window.open(url, '_blank');
+    }
+  };
+  img.onerror = function(){
+    btn.textContent = '✕ asset não encontrado';
+    btn.classList.add('error');
+    btn.disabled = false;
+  };
+  img.src = url + '?v=' + Date.now();
+}
+
+// PALETA — click-to-copy hex
+function copyColor(hex, el) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(hex).then(() => _flashCopy(el)).catch(() => _copyFallback(hex, el));
+  } else { _copyFallback(hex, el); }
+}
+function _copyFallback(hex, el) {
+  var ta = document.createElement('textarea');
+  ta.value = hex; ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch(e){}
+  document.body.removeChild(ta);
+  _flashCopy(el);
+}
+function _flashCopy(el) {
+  el.classList.add('copied');
+  setTimeout(() => el.classList.remove('copied'), 2000);
+}
+
+// DOWNLOAD — redimensiona via canvas no browser
+const SHIELD_URL = 'https://raw.githubusercontent.com/rafaallisboa-svg/SL/main/escudoSL.png';
+function downloadShield(targetW, filename) {
+  const btn = event.currentTarget;
+  btn.textContent = '⌛ gerando…';
+  btn.disabled = true;
+  btn.classList.remove('ok','error');
+
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = function() {
+    try {
+      const ratio  = img.naturalHeight / img.naturalWidth;
+      const w      = targetW === 0 ? img.naturalWidth : targetW;
+      const h      = Math.round(w * ratio);
+      const canvas = document.createElement('canvas');
+      canvas.width  = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      canvas.toBlob(blob => {
+        const a  = document.createElement('a');
+        a.href   = URL.createObjectURL(blob);
+        a.download = filename + '.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+        btn.textContent = '✓ baixando…';
+        btn.classList.add('ok');
+        setTimeout(() => {
+          btn.disabled = false;
+          const label = targetW === 0 ? '↓ download · PNG' : '↓ download · ' + targetW + ' px';
+          btn.textContent = label;
+          btn.classList.remove('ok');
+        }, 2500);
+      }, 'image/png');
+    } catch(e) {
+      btn.textContent = '✕ erro — tente abrir direto';
+      btn.classList.add('error');
+      btn.disabled = false;
+      window.open(SHIELD_URL, '_blank');
+    }
+  };
+  img.onerror = function() {
+    btn.textContent = '✕ sem conexão';
+    btn.classList.add('error');
+    btn.disabled = false;
+  };
+  img.src = SHIELD_URL + '?v=' + Date.now();
+}
+
+// ÍCONES — download todos em ZIP
+function dlAllIcons(btn) {
+  if (typeof JSZip === 'undefined') { alert('JSZip não carregou. Verifique conexão.'); return; }
+  var svgEls = Array.from(document.querySelectorAll('#asset-icon-grid svg[id]'));
+  var ids    = svgEls.map(function(s){ return s.id; });
+  var names  = ids.map(function(id){ return 'SL-' + id.replace('ico-','icone-'); });
+  var total  = ids.length;
+  var orig = btn.textContent;
+  btn.textContent = '⌛ 0/' + total; btn.disabled = true;
+  var zip = new JSZip();
+  var done = 0;
+  function next(i) {
+    if (i >= ids.length) {
+      zip.generateAsync({type:'blob'}).then(function(blob) {
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'SL-icones-' + (_iconMode||'branco') + '.zip';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        btn.textContent = '✓ zip ok'; btn.classList.add('ok');
+        setTimeout(function(){ btn.textContent = orig; btn.disabled = false; btn.classList.remove('ok'); }, 3000);
+      });
+      return;
+    }
+    var el = document.getElementById(ids[i]);
+    if (!el) { next(i+1); return; }
+    var clone = el.cloneNode(true);
+    clone.setAttribute('width','512'); clone.setAttribute('height','512');
+    var xml = new XMLSerializer().serializeToString(clone);
+    var blob = new Blob([xml],{type:'image/svg+xml;charset=utf-8'});
+    var url  = URL.createObjectURL(blob);
+    var img  = new Image();
+    img.onload = function() {
+      var c = document.createElement('canvas'); c.width = 512; c.height = 512;
+      c.getContext('2d').drawImage(img,0,0,512,512);
+      URL.revokeObjectURL(url);
+      c.toBlob(function(png){ zip.file(names[i]+'.png', png); done++; btn.textContent='⌛ '+done+'/'+total; next(i+1); },'image/png');
+    };
+    img.src = url;
+  }
+  next(0);
+}
+
+// ÍCONES — troca de cor via tabs
+var _iconMode = 'white';
+function setIconMode(mode, btn) {
+  _iconMode = mode;
+  var colors = { white:'#ffffff', gold:'#C9A84C', black:'#0A0A0A' };
+  var bgs    = { white:'#131313', gold:'#0e0c05', black:'#edebe7' };
+  var lbls   = { white:'#7A7568', gold:'#6a5c28', black:'#4a4a4a' };
+  var c = colors[mode];
+  var bg = bgs[mode];
+  var lb = lbls[mode];
+  var grid = document.getElementById('asset-icon-grid');
+  // Update SVG strokes and fills (inclui o próprio <svg> e todos seus filhos)
+  grid.querySelectorAll('svg, svg *').forEach(function(el) {
+    var s = el.getAttribute('stroke');
+    var f = el.getAttribute('fill');
+    if (s && s !== 'none') el.setAttribute('stroke', c);
+    if (f && f !== 'none') el.setAttribute('fill', c);
+  });
+  // Update card backgrounds and labels
+  grid.querySelectorAll('.asset-card').forEach(function(card) { card.style.background = bg; });
+  grid.querySelectorAll('.asset-label').forEach(function(lbl) { lbl.style.color = lb; });
+  // Tabs
+  document.querySelectorAll('.icon-tab').forEach(function(t){ t.classList.remove('active'); });
+  btn.classList.add('active');
+}
+
+// ASSETS — download SVG como PNG transparente
+function dlSVG(id, fname, w, h, bg) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var btn = event.currentTarget;
+  var orig = btn.textContent;
+  btn.textContent = '⌛'; btn.disabled = true;
+  var clone = el.cloneNode(true);
+  clone.setAttribute('width', w); clone.setAttribute('height', h);
+  // A cor já está resolvida nos atributos pelo setIconMode; nada a fazer aqui.
+  var xml = new XMLSerializer().serializeToString(clone);
+  var blob = new Blob([xml], {type:'image/svg+xml;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  var img = new Image();
+  img.onload = function() {
+    var c = document.createElement('canvas');
+    c.width = w; c.height = h;
+    var ctx = c.getContext('2d');
+    if (bg) { ctx.fillStyle = bg; ctx.fillRect(0,0,w,h); }
+    ctx.drawImage(img, 0, 0, w, h);
+    URL.revokeObjectURL(url);
+    var a = document.createElement('a');
+    a.href = c.toDataURL('image/png');
+    a.download = fname + '.png';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    btn.textContent = '✓ ok'; btn.classList.add('ok');
+    setTimeout(function(){ btn.textContent = orig; btn.disabled = false; btn.classList.remove('ok'); }, 2000);
+  };
+  img.onerror = function() {
+    btn.textContent = 'erro'; btn.disabled = false;
+  };
+  img.src = url;
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: .08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+</script>
+
+<button id="scroll-top" title="Voltar ao topo">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="18,15 12,9 6,15" stroke="#C9A84C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<script>
+// ── BACK TO TOP ──
+(function(){
+  var btn = document.getElementById('scroll-top');
+  if (!btn) return;
+  var lastY = window.scrollY;
+  function show(){ btn.style.opacity='1'; btn.style.transform='translateY(0)'; btn.style.pointerEvents='auto'; }
+  function hide(){ btn.style.opacity='0'; btn.style.transform='translateY(14px)'; btn.style.pointerEvents='none'; }
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if (y > 280 && y < lastY) { show(); } else { hide(); }
+    lastY = y;
+  }, {passive:true});
+  btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>
